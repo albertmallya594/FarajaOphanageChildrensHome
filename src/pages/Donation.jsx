@@ -150,6 +150,40 @@ const Donation = () => {
 
         </div>
       </section>
+
+      {/* Expanded Ways to Give */}
+      <section className="section">
+        <div className="container">
+          <div className="text-center mb-6">
+            <h2 className="section-title">Other Ways to Give</h2>
+            <div style={{ width: '60px', height: '4px', backgroundColor: 'var(--primary)', margin: '0 auto', borderRadius: '2px' }}></div>
+            <p className="mt-4" style={{ color: 'var(--text-muted)' }}>There’s more than one way to make a life-changing difference for our children.</p>
+          </div>
+          <div className="grid-3" style={{ gap: '2rem' }}>
+            <div className="hover-lift" style={{ padding: '2rem', backgroundColor: 'var(--surface)', borderRadius: 'var(--radius-lg)', border: '1px solid #e5e7eb', textAlign: 'center' }}>
+              <div style={{ width: '60px', height: '60px', borderRadius: '50%', backgroundColor: 'rgba(245, 158, 11, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem' }}>
+                <Landmark color="var(--primary)" size={32} />
+              </div>
+              <h3 style={{ fontSize: '1.25rem', marginBottom: '1rem' }}>Corporate Matching</h3>
+              <p style={{ color: 'var(--text-muted)' }}>Double your impact! Ask your employer if they participate in a matching gift program for charitable contributions.</p>
+            </div>
+            <div className="hover-lift" style={{ padding: '2rem', backgroundColor: 'var(--surface)', borderRadius: 'var(--radius-lg)', border: '1px solid #e5e7eb', textAlign: 'center' }}>
+              <div style={{ width: '60px', height: '60px', borderRadius: '50%', backgroundColor: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem' }}>
+                <Heart color="var(--secondary)" size={32} />
+              </div>
+              <h3 style={{ fontSize: '1.25rem', marginBottom: '1rem' }}>Giving Tuesday Campaigns</h3>
+              <p style={{ color: 'var(--text-muted)' }}>Join us every November for our massive global fundraising push. Start a personal fundraiser page to support Faraja.</p>
+            </div>
+            <div className="hover-lift" style={{ padding: '2rem', backgroundColor: 'var(--surface)', borderRadius: 'var(--radius-lg)', border: '1px solid #e5e7eb', textAlign: 'center' }}>
+              <div style={{ width: '60px', height: '60px', borderRadius: '50%', backgroundColor: 'rgba(239, 68, 68, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem' }}>
+                <CreditCard color="var(--accent)" size={32} style={{ stroke: 'black' }} />
+              </div>
+              <h3 style={{ fontSize: '1.25rem', marginBottom: '1rem' }}>Gifts in Kind</h3>
+              <p style={{ color: 'var(--text-muted)' }}>We always accept physical donations such as children's clothing, school textbooks, blankets, and medical supplies.</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

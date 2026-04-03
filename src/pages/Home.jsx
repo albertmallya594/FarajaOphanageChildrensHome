@@ -87,13 +87,23 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Impact Stats */}
+      {/* Tangible Impact Stats */}
       <section className="section" style={{ position: 'relative', zIndex: 10 }}>
         <div className="container">
-          <div className="grid-3">
+          <div className="text-center mb-6">
+            <h2 className="section-title">Our Tangible Impact</h2>
+            <div style={{ width: '60px', height: '4px', backgroundColor: 'var(--primary)', margin: '0 auto', borderRadius: '2px' }}></div>
+            <p className="mt-4" style={{ color: 'var(--text-muted)' }}>Through the generous support of our partners, we make real, measurable changes.</p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
             <StatCounter end={50} suffix="+" label="Children Residing" />
             <StatCounter end={100} suffix="%" label="School Attendance" />
-            <StatCounter end={5} suffix="+" label="Years of Service" />
+            <StatCounter end={15} suffix="" label="Water Wells Built" />
+            <StatCounter end={1200} suffix="+" label="Blankets Distributed" />
+          </div>
+          <div style={{ padding: '2rem', backgroundColor: 'var(--surface)', borderRadius: 'var(--radius-lg)', marginTop: '2rem', textAlign: 'center', border: '1px solid #e5e7eb' }}>
+            <h3 style={{ fontSize: '1.25rem', color: 'var(--primary)' }}>Over $20,000 in School Supplies Gifted</h3>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Providing uniforms, textbooks, and tuition assistance to ensure no child is left behind in education.</p>
           </div>
         </div>
       </section>

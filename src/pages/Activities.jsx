@@ -43,40 +43,40 @@ const Activities = () => {
           <div className="grid-3">
              <div className="hover-lift" style={{ border: '1px solid #e5e5e5', borderRadius: 'var(--radius-lg)', overflow: 'hidden', backgroundColor: 'white' }}>
                <div style={{ height: '200px', backgroundColor: '#f5f5f4' }}>
-                 <img src={childrenImg} alt="Education" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                 <img src={childrenImg} alt="Desk for Children Project" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                </div>
                <div style={{ padding: '2rem' }}>
                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
                    <BookOpen size={28} color="var(--primary)" />
-                   <h3 style={{ fontSize: '1.5rem' }}>Education Support</h3>
+                   <h3 style={{ fontSize: '1.25rem', fontWeight: 800 }}>Desk for Children Project (DCP)</h3>
                  </div>
-                 <p style={{ color: 'var(--text-muted)' }}>We ensure that 100% of the children in our care attend school. We provide tuition, uniforms, textbooks, and tutoring to guarantee they have the tools to succeed.</p>
+                 <p style={{ color: 'var(--text-muted)' }}>We ensure that 100% of the children in our care attend school by providing essential resources. We fund desks, uniforms, textbooks, and tutoring to guarantee they have the proper infrastructure to succeed.</p>
                </div>
              </div>
 
              <div className="hover-lift" style={{ border: '1px solid #e5e5e5', borderRadius: 'var(--radius-lg)', overflow: 'hidden', backgroundColor: 'white' }}>
                <div style={{ height: '200px', backgroundColor: '#f5f5f4' }}>
-                 <img src="https://images.unsplash.com/photo-1576086208153-62aeb288aaeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Healthcare" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                 <img src="https://images.unsplash.com/photo-1576086208153-62aeb288aaeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Clean Water for Children" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                </div>
                <div style={{ padding: '2rem' }}>
                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
                    <HeartPulse size={28} color="var(--secondary)" />
-                   <h3 style={{ fontSize: '1.5rem' }}>Healthcare & Nutrition</h3>
+                   <h3 style={{ fontSize: '1.25rem', fontWeight: 800 }}>Clean Water for Children (CWC)</h3>
                  </div>
-                 <p style={{ color: 'var(--text-muted)' }}>Regular medical checkups, vaccinations, and a balanced diet are staples at Faraja. We partner with local clinics to address any health needs immediately.</p>
+                 <p style={{ color: 'var(--text-muted)' }}>Every single day, children face severe health risks from contaminated water. Through CWC, we build and install improved water wells and provide reliable water filters to our surrounding communities.</p>
                </div>
              </div>
 
              <div className="hover-lift" style={{ border: '1px solid #e5e5e5', borderRadius: 'var(--radius-lg)', overflow: 'hidden', backgroundColor: 'white' }}>
                <div style={{ height: '200px', backgroundColor: '#f5f5f4' }}>
-                 <img src={communityImg} alt="Community" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                 <img src={communityImg} alt="Roof for Rookies Project" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                </div>
                <div style={{ padding: '2rem' }}>
                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
                    <Users size={28} color="var(--accent)" style={{ stroke: 'black' }} />
-                   <h3 style={{ fontSize: '1.5rem' }}>Community Outreach</h3>
+                   <h3 style={{ fontSize: '1.25rem', fontWeight: 800 }}>Roof for Rookies Project (2RP)</h3>
                  </div>
-                 <p style={{ color: 'var(--text-muted)' }}>We extend our impact beyond the orphanage walls by assisting vulnerable families in the community with resources, business capital, and counseling.</p>
+                 <p style={{ color: 'var(--text-muted)' }}>We extend our impact beyond the orphanage by ensuring vulnerable families and new children have a stable, dry environment. We provide construction materials and fund housing rehabilitation.</p>
                </div>
              </div>
           </div>

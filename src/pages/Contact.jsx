@@ -109,6 +109,35 @@ const Contact = () => {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="section section--light">
+        <div className="container">
+          <div className="text-center mb-6">
+            <h2 className="section-title">Frequently Asked Questions</h2>
+            <div style={{ width: '60px', height: '4px', backgroundColor: 'var(--primary)', margin: '0 auto', borderRadius: '2px' }}></div>
+          </div>
+          
+          <div style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            {[
+              { q: 'How are my donations utilized?', a: '100% of your public donations go directly towards our core programs: the Desk for Children Project, the Clean Water Initiative, and daily healthcare/nutrition needs of the children.' },
+              { q: 'Can I sponsor a specific child?', a: 'Yes! Our child sponsorship program allows you to fund the education and living expenses for a specific child. You will receive termly updates on their progress.' },
+              { q: 'What items can I donate in kind?', a: 'We accept gently used children\'s clothing, educational books in English or Swahili, stationery, and non-perishable food items. Please contact us prior to shipping.' },
+              { q: 'Do you offer volunteer housing?', a: 'Yes, we have a safe and comfortable volunteer house located within walking distance of the orphanage. It includes basic amenities and 24/7 security.' }
+            ].map((faq, index) => (
+              <details key={index} style={{ backgroundColor: 'white', borderRadius: 'var(--radius-md)', border: '1px solid #e5e7eb', overflow: 'hidden' }}>
+                <summary style={{ padding: '1.25rem 1.5rem', fontWeight: 700, cursor: 'pointer', outline: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  {faq.q}
+                  <span style={{ color: 'var(--primary)' }}>+</span>
+                </summary>
+                <div style={{ padding: '0 1.5rem 1.25rem', color: 'var(--text-muted)', lineHeight: 1.6, borderTop: '1px solid #f3f4f6', paddingTop: '1rem' }}>
+                  {faq.a}
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Map Placeholder */}
       <section style={{ height: '400px', backgroundColor: '#e5e7eb', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <p style={{ color: 'var(--text-muted)', fontSize: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
