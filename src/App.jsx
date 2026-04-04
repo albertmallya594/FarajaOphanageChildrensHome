@@ -9,6 +9,7 @@ import Activities from './pages/Activities';
 import Volunteers from './pages/Volunteers';
 import Donation from './pages/Donation';
 import Contact from './pages/Contact';
+import CowProject from './pages/CowProject';
 
 // Admin Pages
 import AdminLogin from './pages/Admin/Login';
@@ -26,6 +27,7 @@ function App() {
           <Route path="/volunteers" element={<Volunteers />} />
           <Route path="/donate" element={<Donation />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/cow-project" element={<CowProject />} />
           
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminLogin />} />

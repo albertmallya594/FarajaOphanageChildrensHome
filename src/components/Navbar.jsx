@@ -38,6 +38,7 @@ const Navbar = () => {
           <li><Link to="/" className={`nav-link ${isActive('/')}`} onClick={() => setIsMenuOpen(false)}>Home</Link></li>
           <li><Link to="/about" className={`nav-link ${isActive('/about')}`} onClick={() => setIsMenuOpen(false)}>About</Link></li>
           <li><Link to="/activities" className={`nav-link ${isActive('/activities')}`} onClick={() => setIsMenuOpen(false)}>Activities</Link></li>
+          <li><Link to="/cow-project" className={`nav-link ${isActive('/cow-project')}`} onClick={() => setIsMenuOpen(false)}>Cow Project</Link></li>
           <li><Link to="/volunteers" className={`nav-link ${isActive('/volunteers')}`} onClick={() => setIsMenuOpen(false)}>Volunteers</Link></li>
           <li><Link to="/contact" className={`nav-link ${isActive('/contact')}`} onClick={() => setIsMenuOpen(false)}>Contact</Link></li>
           <li>
