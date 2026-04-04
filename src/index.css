@@ -1,21 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
 
 :root {
-  /* Warm, hopeful color palette */
-  --primary: #f59e0b;      /* amber/orange */
-  --primary-hover: #d97706;
-  --secondary: #10b981;    /* bright green */
-  --secondary-hover: #059669;
-  --accent: #fcd34d;       /* soft yellow */
+  /* Logo-inspired color palette */
+  --primary: #E45D25;      /* Logo Orange */
+  --primary-hover: #C54C1C;
+  --secondary: #2A81C4;    /* Logo Blue */
+  --secondary-hover: #1E6699;
+  --accent: #316436;       /* Logo Green */
+  --accent-hover: #264E2A;
+  --sun: #F9A11B;          /* Logo Sun Yellow */
   
-  --background: #fafaf9;   /* off white */
+  --background: #FAFAFB;   /* cleaner light grey-blue background */
   --surface: #ffffff;
   
-  --text-main: #1c1917;    /* very dark warm grey */
-  --text-muted: #57534e;   /* medium warm grey */
+  --text-main: #1A202C;    /* dark slate */
+  --text-muted: #4A5568;   /* medium slate */
   
-  --danger: #ef4444;       
-  --success: #22c55e;
+  --danger: #E53E3E;       
+  --success: #38A169;
   
   /* Layout */
   --container-width: 1200px;
@@ -89,6 +91,10 @@ img {
 
 .section--light {
   background-color: var(--surface);
+}
+
+.section--warm {
+  background-color: #FFF8F1;
 }
 
 .section--accent {

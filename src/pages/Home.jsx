@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Heart, Users, CheckCircle, Clock, ChevronRight, BookOpen } from 'lucide-react';
+import { Heart, Users, CheckCircle, Clock, ChevronRight, BookOpen, GraduationCap, Utensils, Stethoscope, Globe, Coins } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
 
 // Images
@@ -76,14 +76,15 @@ const Home = () => {
         position: 'sticky',
         top: '70px',
         zIndex: 40,
-        boxShadow: 'var(--shadow-md)'
+        boxShadow: 'var(--shadow-md)',
+        color: 'white'
       }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 600, fontSize: '1.125rem' }}>
-            <span style={{ color: 'var(--text-muted)' }}>M-Pesa:</span>
+            <span style={{ opacity: 0.9 }}>M-Pesa:</span>
             <span>+255 763 485 866</span>
           </div>
-          <Link to="/donate" className="btn btn-primary" style={{ padding: '0.5rem 1.5rem' }}>Donate Now</Link>
+          <Link to="/donate" className="btn btn-primary" style={{ padding: '0.5rem 1.5rem', backgroundColor: 'white', color: 'var(--accent)', border: 'none' }}>Donate Now</Link>
         </div>
       </div>
 
@@ -202,45 +203,122 @@ const Home = () => {
         </div>
       </section>
 
-
-
-      {/* Sponsor a Child */}
-      <section className="section section--accent text-center">
+      {/* Sponsorship & Faraja Projects Section */}
+      <section className="section section--warm section-sponsorship-projects">
         <div className="container">
-          <h2 className="section-title" style={{ color: 'var(--text-main)' }}>Sponsor a Child</h2>
-          <p className="section-subtitle" style={{ color: 'var(--text-muted)' }}>
-            Your support can change a child’s life forever. By sponsoring a child at Faraja Orphanage, you help provide education, meals, healthcare, and a safe home. Every contribution creates an opportunity for a brighter future filled with hope and possibility.
-          </p>
-
-          <div className="grid-4 mb-6">
-            {['Gladys', 'Provia', 'Baraka', 'Amina'].map((name, index) => (
-              <div key={index} className="child-card hover-lift" style={{ 
-                position: 'relative', 
-                borderRadius: 'var(--radius-lg)', 
-                overflow: 'hidden', 
-                aspectRatio: '3/4',
-                boxShadow: 'var(--shadow-md)'
-              }}>
-                <img src={child1} alt={name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ 
-                  position: 'absolute', 
-                  bottom: 0, 
-                  left: 0, 
-                  width: '100%', 
-                  padding: '2rem 1rem 1rem', 
-                  background: 'linear-gradient(transparent, rgba(0,0,0,0.8))',
-                  textAlign: 'left'
-                }}>
-                  <h3 style={{ color: 'white', fontSize: '1.5rem' }}>{name}</h3>
-                </div>
+          <div className="grid-2" style={{ alignItems: 'flex-start', gap: '4rem' }}>
+            
+            {/* Part 1: Child Sponsorship */}
+            <div className="sponsorship-info animate-fade-in">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem', color: 'var(--primary)' }}>
+                <Heart size={32} fill="var(--primary)" />
+                <h2 className="section-title" style={{ margin: 0, fontSize: '2.25rem' }}>Child Sponsorship</h2>
               </div>
-            ))}
+              <p className="mb-4" style={{ fontSize: '1.125rem', lineHeight: '1.7', color: 'var(--text-muted)' }}>
+                At Faraja Orphanage Children’s Home, child sponsorship is one of the most powerful ways to make a lasting impact. By sponsoring a child, you directly support their education, healthcare, daily meals, and emotional wellbeing. 
+              </p>
+              <p className="mb-6" style={{ fontSize: '1.125rem', lineHeight: '1.7', color: 'var(--text-muted)' }}>
+                Your contribution ensures that each child grows up in a safe, loving environment with access to opportunities that shape a brighter future. Sponsorship is not just support, it is a commitment to changing a life.
+              </p>
+              
+              <ul style={{ listStyle: 'none', padding: 0, marginBottom: '2.5rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem' }}>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontWeight: 600, color: 'var(--text-main)' }}>
+                  <div style={{ padding: '0.5rem', backgroundColor: 'rgba(228, 93, 37, 0.1)', borderRadius: '50%', color: 'var(--primary)' }}>
+                    <GraduationCap size={20} />
+                  </div>
+                  School fees & supplies
+                </li>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontWeight: 600, color: 'var(--text-main)' }}>
+                  <div style={{ padding: '0.5rem', backgroundColor: 'rgba(228, 93, 37, 0.1)', borderRadius: '50%', color: 'var(--primary)' }}>
+                    <Utensils size={20} />
+                  </div>
+                  Nutritious meals
+                </li>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontWeight: 600, color: 'var(--text-main)' }}>
+                  <div style={{ padding: '0.5rem', backgroundColor: 'rgba(228, 93, 37, 0.1)', borderRadius: '50%', color: 'var(--primary)' }}>
+                    <Stethoscope size={20} />
+                  </div>
+                  Healthcare & medical
+                </li>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontWeight: 600, color: 'var(--text-main)' }}>
+                  <div style={{ padding: '0.5rem', backgroundColor: 'rgba(228, 93, 37, 0.1)', borderRadius: '50%', color: 'var(--primary)' }}>
+                    <Heart size={20} />
+                  </div>
+                  Safe & loving home
+                </li>
+              </ul>
+              
+              <Link to="/donate" className="btn btn-primary" style={{ padding: '1rem 2.5rem', fontSize: '1.125rem' }}>
+                Sponsor a Child Now
+              </Link>
+            </div>
+
+            {/* Part 2: Faraja Projects */}
+            <div className="projects-grid-wrapper">
+              <div className="mb-4">
+                <h2 className="section-title" style={{ fontSize: '2.25rem', marginBottom: '1rem' }}>Faraja Projects</h2>
+                <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', marginBottom: '2rem' }}>
+                  Faraja Orphanage is committed to creating long-term, sustainable change through impactful community projects.
+                </p>
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem' }}>
+                {[
+                  { 
+                    icon: <BookOpen />, 
+                    title: "Education Support", 
+                    desc: "Provides school fees, uniforms, and learning materials to ensure every child receives quality education." 
+                  },
+                  { 
+                    icon: <Stethoscope />, 
+                    title: "Health & Nutrition", 
+                    desc: "Ensures children receive regular medical check-ups, balanced meals, and proper healthcare services." 
+                  },
+                  { 
+                    icon: <Users />, 
+                    title: "Community Outreach", 
+                    desc: "Supports vulnerable families through visits, counseling, and and material assistance." 
+                  },
+                  { 
+                    icon: <Coins />, 
+                    title: "Economic Empowerment", 
+                    desc: "Helps families start small businesses and become financially independent through training." 
+                  }
+                ].map((item, i) => (
+                  <div key={i} className="hover-lift" style={{ 
+                    padding: '1.5rem', 
+                    backgroundColor: 'white', 
+                    borderRadius: 'var(--radius-md)', 
+                    boxShadow: 'var(--shadow-sm)',
+                    border: '1px solid rgba(0,0,0,0.05)'
+                  }}>
+                    <div style={{ color: 'var(--primary)', marginBottom: '1rem' }}>
+                      {React.cloneElement(item.icon, { size: 32 })}
+                    </div>
+                    <h3 style={{ fontSize: '1.25rem', marginBottom: '0.75rem', fontWeight: 700 }}>{item.title}</h3>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.5' }}>{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+              
+              <div style={{ marginTop: '2.5rem' }}>
+                <Link to="/activities" className="btn btn-primary" style={{ padding: '0.75rem 2rem' }}>
+                  Explore Our Projects <ChevronRight size={18} />
+                </Link>
+              </div>
+            </div>
           </div>
-          
-          <Link to="/donate" className="btn btn-primary" style={{ padding: '1rem 2.5rem', fontSize: '1.125rem' }}>
-            Start Sponsoring Today
-          </Link>
         </div>
+
+        <style>{`
+          .section-sponsorship-projects {
+            border-top: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+          }
+          @media (max-width: 768px) {
+            .grid-2 { gap: 3rem !important; }
+          }
+        `}</style>
       </section>
 
       {/* Testimonial */}

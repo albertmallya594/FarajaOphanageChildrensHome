@@ -2,8 +2,11 @@ import { Link, useLocation } from 'react-router-dom';
 import { Heart, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
+import logoImg from '../assets/logo.png';
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [logoError, setLogoError] = useState(false);
   const location = useLocation();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -15,9 +18,20 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="container">
-        <Link to="/" className="logo hover-lift" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 800, fontSize: '1.5rem', color: 'var(--primary)' }}>
-          <Heart size={28} fill="var(--primary)" />
-          Faraja
+        <Link to="/" className="logo hover-lift" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          {!logoError ? (
+            <img 
+              src={logoImg} 
+              alt="Faraja Logo" 
+              style={{ height: '75px', width: 'auto' }} 
+              onError={() => setLogoError(true)}
+            />
+          ) : (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 800, fontSize: '1.5rem', color: 'var(--primary)' }}>
+              <Heart size={28} fill="var(--primary)" />
+              Faraja
+            </div>
+          )}
         </Link>
         
         <ul className={`nav-links ${isMenuOpen ? 'mobile-open' : ''}`}>

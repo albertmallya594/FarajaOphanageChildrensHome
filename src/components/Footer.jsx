@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import { Heart, Mail, MapPin, Phone } from 'lucide-react';
+import { useState } from 'react';
+import logoImg from '../assets/logo.png';
 
 const Footer = () => {
+  const [logoError, setLogoError] = useState(false);
   return (
     <>
       <section style={{ backgroundColor: 'var(--primary)', padding: '4rem 1rem', textAlign: 'center' }}>
@@ -17,12 +20,12 @@ const Footer = () => {
               .newsletter-row > div { flex: 1; text-align: left; }
             }
             .newsletter-input { padding: 0.75rem 1rem; border: 1px solid #e5e7eb; border-radius: var(--radius-full); background: #f8fafc; width: 100%; outline: none; font-family: inherit; }
-            .newsletter-input:focus { border-color: var(--primary); box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2); }
+            .newsletter-input:focus { border-color: var(--primary); box-shadow: 0 0 0 2px rgba(228, 93, 37, 0.2); }
           `}
         </style>
         <h2 style={{ color: 'white', fontSize: '2.5rem', marginBottom: '2rem', fontWeight: 800 }}>Stay in Touch</h2>
         <div style={{ backgroundColor: 'white', padding: '3rem 2rem', borderRadius: 'var(--radius-lg)', maxWidth: '800px', margin: '0 auto', boxShadow: 'var(--shadow-lg)' }}>
-          <h3 style={{ color: '#1e3a8a', fontSize: '1.125rem', marginBottom: '1rem', fontWeight: 700 }}>Keep Up with our Kids and Families</h3>
+          <h3 style={{ color: 'var(--secondary)', fontSize: '1.25rem', marginBottom: '1rem', fontWeight: 700 }}>Keep Up with our Kids and Families</h3>
           <p style={{ color: 'var(--text-muted)', marginBottom: '2rem', fontSize: '0.95rem' }}>
             Join our team of worldwide champions for children! Enjoy outreach success stories, updates from our children's village, and get to know our kids!
           </p>
@@ -42,7 +45,7 @@ const Footer = () => {
                  </label>
                </div>
             </div>
-            <button type="submit" className="hover-lift" style={{ backgroundColor: '#8b0000', color: 'white', padding: '0.875rem', borderRadius: 'var(--radius-sm)', fontWeight: 600, border: 'none', cursor: 'pointer', marginTop: '1rem', width: '100%' }}>
+            <button type="submit" className="hover-lift btn-primary" style={{ padding: '0.875rem', borderRadius: 'var(--radius-sm)', fontWeight: 600, border: 'none', cursor: 'pointer', marginTop: '1rem', width: '100%' }}>
               Join our family
             </button>
           </form>
@@ -53,9 +56,20 @@ const Footer = () => {
         <div className="container">
           <div className="footer-grid">
             <div>
-              <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 800, fontSize: '1.5rem', color: 'var(--primary)', marginBottom: '1rem' }}>
-                <Heart size={28} fill="var(--primary)" />
-                Faraja
+              <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.5rem' }}>
+                 {!logoError ? (
+                  <img 
+                    src={logoImg} 
+                    alt="Faraja Logo" 
+                    style={{ height: '75px', width: 'auto' }} 
+                    onError={() => setLogoError(true)}
+                  />
+                ) : (
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 800, fontSize: '1.5rem', color: 'var(--primary)' }}>
+                    <Heart size={28} fill="var(--primary)" />
+                    Faraja
+                  </div>
+                )}
               </Link>
               <p style={{ color: '#a8a29e', maxWidth: '400px', marginBottom: '1.5rem' }}>
                 Providing a haven of comfort and a future of hope. We transform lives through education, healthcare, and a loving community.
