@@ -107,6 +107,41 @@ const Activities = () => {
         </div>
       </section>
 
+      {/* Featured Articles & Education */}
+      <section className="section">
+        <div className="container">
+          <div className="text-center mb-6">
+            <h2 className="section-title">Educational Resources</h2>
+            <div style={{ width: '60px', height: '4px', backgroundColor: 'var(--secondary)', margin: '0 auto', borderRadius: '2px' }}></div>
+            <p className="mt-4" style={{ color: 'var(--text-muted)' }}>Insights into our operations and the global impact of volunteering.</p>
+          </div>
+          
+          <div className="grid-2" style={{ gap: '2rem' }}>
+            <div className="hover-lift" style={{ border: '1px solid #e5e7eb', borderRadius: 'var(--radius-lg)', overflow: 'hidden', backgroundColor: 'white', display: 'flex', flexDirection: 'column' }}>
+              <div style={{ padding: '2rem', flex: 1 }}>
+                <span style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--primary)', textTransform: 'uppercase', letterSpacing: '1px' }}>Volunteer Blog</span>
+                <h3 style={{ fontSize: '1.5rem', marginTop: '0.5rem', marginBottom: '1rem' }}>How Volunteering Helps Your Mental Health</h3>
+                <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: 1.6 }}>
+                  Did you know that dedicating your time to helping vulnerable children doesn't just change their lives, it profoundly impacts yours? Studies show volunteering reduces stress, combats depression, and provides a deep sense of purpose.
+                </p>
+                <button className="btn btn-outline" style={{ marginTop: 'auto', alignSelf: 'flex-start' }}>Read Full Article</button>
+              </div>
+            </div>
+
+            <div className="hover-lift" style={{ border: '1px solid #e5e7eb', borderRadius: 'var(--radius-lg)', overflow: 'hidden', backgroundColor: 'white', display: 'flex', flexDirection: 'column' }}>
+              <div style={{ padding: '2rem', flex: 1 }}>
+                <span style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--secondary)', textTransform: 'uppercase', letterSpacing: '1px' }}>Impact Story</span>
+                <h3 style={{ fontSize: '1.5rem', marginTop: '0.5rem', marginBottom: '1rem' }}>The Power Of Giving: Overcoming Fundraising Challenges</h3>
+                <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: 1.6 }}>
+                  Operating an orphanage in Arusha comes with massive logistical and financial hurdles. Discover our transparent approach to how we overcome systemic fundraising challenges to ensure not a single child goes without a meal or education.
+                </p>
+                <button className="btn btn-outline" style={{ marginTop: 'auto', alignSelf: 'flex-start' }}>Read Full Article</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Lightbox Modal */}
       {selectedImage && (
         <div 

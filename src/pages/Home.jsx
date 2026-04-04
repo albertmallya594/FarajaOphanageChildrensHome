@@ -132,24 +132,25 @@ const Home = () => {
 
 
 
-      {/* Supporting Sustainable Businesses (General Program Info) */}
+      {/* Meet Rehema (Storytelling Section) */}
       <section className="section section--light">
-        <div className="container grid-2">
+        <div className="container grid-2" style={{ alignItems: 'center' }}>
           <div className="content-wrapper" style={{ order: 2 }}>
-            <h2 className="section-title">Supporting Sustainable Businesses</h2>
+            <h2 className="section-title">Meet Rehema</h2>
             <div style={{ width: '60px', height: '4px', backgroundColor: 'var(--secondary)', marginBottom: '1.5rem', borderRadius: '2px' }}></div>
             <p className="mb-4" style={{ fontSize: '1.125rem', color: 'var(--text-muted)' }}>
-              We understand that long-term change begins with economic empowerment. That is why Faraja supports caregivers and vulnerable families by helping them start and grow small businesses.
+              Rehema is 10 years old. She lives in one of our family houses at Faraja. When we first found Rehema, she had been tragically orphaned by the sudden loss of her parents and faced severe malnutrition.
             </p>
             <p className="mb-6" style={{ fontSize: '1.125rem', color: 'var(--text-muted)' }}>
-              Through training, mentorship, and financial support, families gain the ability to provide for themselves with dignity. This stability ensures that children can remain in school, stay healthy, and grow within a secure and supportive environment.
+              Due to the lack of immediate extended family support, she was left to fend for herself at a critically young age. Today, thanks to our dedicated sponsors and caregivers, Rehema is an aspiring student who loves mathematics and dreams of becoming a nurse to help others in her community.
             </p>
-            <Link to="/activities" className="btn btn-secondary" style={{ display: 'inline-flex', alignItems: 'center' }}>
-              Learn More About Economic Empowerment <ChevronRight size={18} />
+            <Link to="/donate" className="btn btn-secondary" style={{ display: 'inline-flex', alignItems: 'center' }}>
+              Help Save Children Like Rehema <ChevronRight size={18} />
             </Link>
           </div>
-          <div className="image-wrapper hover-lift" style={{ order: 1, borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)' }}>
-             <img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sustainable Business" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <div className="image-wrapper hover-lift" style={{ order: 1, borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)', position: 'relative' }}>
+             <img src={child1} alt="Meet Rehema" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+             <div style={{ position: 'absolute', bottom: '1rem', left: '1rem', backgroundColor: 'var(--accent)', color: 'black', padding: '0.5rem 1rem', borderRadius: 'var(--radius-full)', fontWeight: 'bold' }}>Read Her Story</div>
           </div>
         </div>
       </section>

@@ -1,4 +1,4 @@
-import { Heart, ShieldCheck, Zap } from 'lucide-react';
+import { Heart, ShieldCheck, Zap, MapPin, PieChart } from 'lucide-react';
 import React from 'react';
 import heroImg from '../assets/community_support.png';
 
@@ -94,6 +94,64 @@ const About = () => {
                 <p style={{ color: 'var(--text-muted)' }}>{val.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Where We Serve (Service Area) */}
+      <section className="section" style={{ backgroundColor: '#f0fdf4' }}>
+        <div className="container grid-2" style={{ alignItems: 'center' }}>
+          <div>
+            <h2 className="section-title">Our Service Area</h2>
+            <div style={{ width: '60px', height: '4px', backgroundColor: 'var(--primary)', marginBottom: '1.5rem', borderRadius: '2px' }}></div>
+            <p className="mb-4" style={{ fontSize: '1.125rem', color: 'var(--text-muted)' }}>
+              While our core orphanage facility is nestled safely in Arusha, Tanzania, our community impact and outreach programs stretch much further. We believe that true, lasting change must happen simultaneously in the surrounding villages and districts.
+            </p>
+            <ul style={{ listStyle: 'none', padding: 0, margin: '2rem 0', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              {['Arusha City Center (Primary Orphanage & Safe House)', 'Meru District (Local Schools & Desk Projects)', 'Monduli District (Clean Water Initiatives)', 'Karatu (Vulnerable Family Support)'].map((location, idx) => (
+                <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '1rem', fontSize: '1.125rem', fontWeight: 500, color: 'var(--text-main)' }}>
+                  <div style={{ padding: '0.5rem', backgroundColor: 'white', borderRadius: '50%', boxShadow: 'var(--shadow-sm)' }}>
+                    <MapPin size={24} color="var(--secondary)" />
+                  </div>
+                  {location}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="image-wrapper" style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-md)', height: '100%', minHeight: '300px', backgroundColor: '#e5e7eb', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <p style={{ color: 'var(--text-muted)' }}>[Interactive Regional Map Placeholder]</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Financial Transparency */}
+      <section className="section section--light">
+        <div className="container text-center">
+          <h2 className="section-title">Financial Information</h2>
+          <div style={{ width: '60px', height: '4px', backgroundColor: 'var(--accent)', margin: '0 auto 1.5rem', borderRadius: '2px' }}></div>
+          <p className="mb-6" style={{ fontSize: '1.125rem', color: 'var(--text-muted)', maxWidth: '800px', margin: '0 auto 3rem' }}>
+            We take our responsibility to our donors and children incredibly seriously. Our financial model is structured to ensure that the vast majority of every dollar raised goes directly to life-saving and life-changing programs.
+          </p>
+
+          <div className="grid-3" style={{ gap: '2rem', maxWidth: '1000px', margin: '0 auto' }}>
+            <div className="hover-lift" style={{ padding: '2rem', backgroundColor: 'white', border: '1px solid #e5e5e5', borderRadius: 'var(--radius-lg)' }}>
+              <PieChart size={48} color="var(--primary)" style={{ margin: '0 auto 1rem' }} />
+              <div style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--text-main)' }}>85%</div>
+              <h4 style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>Direct Programs</h4>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Funding the Clean Water Initiative, Desk Project, child housing, food, and daily care.</p>
+            </div>
+            <div className="hover-lift" style={{ padding: '2rem', backgroundColor: 'white', border: '1px solid #e5e5e5', borderRadius: 'var(--radius-lg)' }}>
+              <PieChart size={48} color="var(--secondary)" style={{ margin: '0 auto 1rem' }} />
+              <div style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--text-main)' }}>10%</div>
+              <h4 style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>Facilities & Admin</h4>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Essential operations, staff training, legal compliance, and vital infrastructure maintenance.</p>
+            </div>
+            <div className="hover-lift" style={{ padding: '2rem', backgroundColor: 'white', border: '1px solid #e5e5e5', borderRadius: 'var(--radius-lg)' }}>
+              <PieChart size={48} color="var(--accent)" style={{ margin: '0 auto 1rem' }} />
+              <div style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--text-main)' }}>5%</div>
+              <h4 style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>Fundraising</h4>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Outreach activities, software subscriptions, and necessary donor engagement tools.</p>
+            </div>
           </div>
         </div>
       </section>
