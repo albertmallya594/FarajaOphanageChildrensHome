@@ -339,17 +339,3 @@ footer {
 .footer-link:hover {
   color: var(--primary);
 }
-
-/* Community Three-Panel Grid */
-.community-panels {
-  display: grid;
-  grid-template-columns: 1fr;
-  overflow: hidden;
-  border-radius: var(--radius-lg);
-}
-
-@media (min-width: 640px) {
-  .community-panels {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}

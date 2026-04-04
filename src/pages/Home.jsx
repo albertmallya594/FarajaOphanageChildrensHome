@@ -87,83 +87,6 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Community Section - OLF Style */}
-      <section style={{ backgroundColor: '#f5f5f5', padding: '4rem 0' }}>
-        <div className="container">
-          <div className="text-center" style={{ marginBottom: '3rem' }}>
-            <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 700, color: 'var(--text-main)', maxWidth: '600px', margin: '0 auto 1rem', lineHeight: 1.4 }}>
-              By supporting an orphan you are supporting an entire community.
-            </h2>
-            <div style={{ width: '60px', height: '4px', backgroundColor: 'var(--primary)', margin: '0 auto', borderRadius: '2px' }}></div>
-          </div>
-
-          <div className="community-panels">
-            {[
-              {
-                label: 'Our mission',
-                img: communityImg,
-                to: '/about'
-              },
-              {
-                label: 'What we do',
-                img: heroImg,
-                to: '/activities'
-              },
-              {
-                label: 'Where we serve',
-                img: 'https://images.unsplash.com/photo-1508847154043-be5407fcaa5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-                to: '/about'
-              }
-            ].map((card, idx) => (
-              <Link
-                key={idx}
-                to={card.to}
-                style={{
-                  position: 'relative',
-                  display: 'block',
-                  height: '340px',
-                  overflow: 'hidden',
-                  textDecoration: 'none',
-                  cursor: 'pointer'
-                }}
-              >
-                <img
-                  src={card.img}
-                  alt={card.label}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    transition: 'transform 0.5s ease',
-                    display: 'block'
-                  }}
-                  onMouseOver={e => e.currentTarget.style.transform = 'scale(1.06)'}
-                  onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
-                />
-                {/* Dark overlay */}
-                <div style={{
-                  position: 'absolute',
-                  inset: 0,
-                  background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.4) 100%)'
-                }}></div>
-                {/* Label */}
-                <div style={{
-                  position: 'absolute',
-                  bottom: '1.5rem',
-                  left: '1.5rem',
-                  color: 'white',
-                  fontSize: '1.25rem',
-                  fontWeight: 700,
-                  letterSpacing: '0.02em'
-                }}>
-                  {card.label}
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Tangible Impact Stats */}
       <section className="section" style={{ position: 'relative', zIndex: 10 }}>
         <div className="container">
@@ -181,6 +104,53 @@ const Home = () => {
           <div style={{ padding: '2rem', backgroundColor: 'var(--surface)', borderRadius: 'var(--radius-lg)', marginTop: '2rem', textAlign: 'center', border: '1px solid #e5e7eb' }}>
             <h3 style={{ fontSize: '1.25rem', color: 'var(--primary)' }}>Over $20,000 in School Supplies Gifted</h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Providing uniforms, textbooks, and tuition assistance to ensure no child is left behind in education.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Pillars Section */}
+      <section className="section section--light">
+        <div className="container">
+          <div className="text-center mb-6">
+             <h2 className="section-title" style={{ fontSize: '1.75rem', fontWeight: 600, color: 'black', maxWidth: '600px', margin: '0 auto 1.5rem' }}>
+               By supporting an orphan you are supporting an entire community.
+             </h2>
+             <div style={{ width: '80px', height: '2px', backgroundColor: 'var(--primary)', margin: '0 auto', borderRadius: '2px' }}></div>
+          </div>
+          
+          <div className="grid-3" style={{ gap: '1rem' }}>
+            {[
+              { title: 'Our mission', link: '/about', img: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+              { title: 'What we do', link: '/activities', img: 'https://images.unsplash.com/photo-1579208575657-c59520a4b7ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+              { title: 'Where we serve', link: '/about', img: 'https://images.unsplash.com/photo-1542810634-71277d95dcbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' }
+            ].map((pillar, idx) => (
+              <Link key={idx} to={pillar.link} className="hover-lift" style={{ 
+                position: 'relative', 
+                height: '350px', 
+                borderRadius: 'var(--radius-sm)', 
+                overflow: 'hidden', 
+                display: 'block',
+                textDecoration: 'none'
+              }}>
+                <img 
+                  src={pillar.img} 
+                  alt={pillar.title} 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease' }} 
+                  onMouseOver={e => e.currentTarget.style.transform = 'scale(1.1)'}
+                  onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
+                />
+                <div style={{ 
+                  position: 'absolute', 
+                  inset: 0, 
+                  background: 'linear-gradient(transparent, rgba(0,0,0,0.7))',
+                  display: 'flex',
+                  alignItems: 'flex-end',
+                  padding: '2rem'
+                }}>
+                  <h3 style={{ color: 'white', fontSize: '1.75rem', fontWeight: 800, margin: 0 }}>{pillar.title}</h3>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
