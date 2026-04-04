@@ -87,6 +87,83 @@ const Home = () => {
         </div>
       </div>
 
+      {/* Community Section - OLF Style */}
+      <section style={{ backgroundColor: '#f5f5f5', padding: '4rem 0' }}>
+        <div className="container">
+          <div className="text-center" style={{ marginBottom: '3rem' }}>
+            <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 700, color: 'var(--text-main)', maxWidth: '600px', margin: '0 auto 1rem', lineHeight: 1.4 }}>
+              By supporting an orphan you are supporting an entire community.
+            </h2>
+            <div style={{ width: '60px', height: '4px', backgroundColor: 'var(--primary)', margin: '0 auto', borderRadius: '2px' }}></div>
+          </div>
+
+          <div className="community-panels">
+            {[
+              {
+                label: 'Our mission',
+                img: communityImg,
+                to: '/about'
+              },
+              {
+                label: 'What we do',
+                img: heroImg,
+                to: '/activities'
+              },
+              {
+                label: 'Where we serve',
+                img: 'https://images.unsplash.com/photo-1508847154043-be5407fcaa5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                to: '/about'
+              }
+            ].map((card, idx) => (
+              <Link
+                key={idx}
+                to={card.to}
+                style={{
+                  position: 'relative',
+                  display: 'block',
+                  height: '340px',
+                  overflow: 'hidden',
+                  textDecoration: 'none',
+                  cursor: 'pointer'
+                }}
+              >
+                <img
+                  src={card.img}
+                  alt={card.label}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    transition: 'transform 0.5s ease',
+                    display: 'block'
+                  }}
+                  onMouseOver={e => e.currentTarget.style.transform = 'scale(1.06)'}
+                  onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
+                />
+                {/* Dark overlay */}
+                <div style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.4) 100%)'
+                }}></div>
+                {/* Label */}
+                <div style={{
+                  position: 'absolute',
+                  bottom: '1.5rem',
+                  left: '1.5rem',
+                  color: 'white',
+                  fontSize: '1.25rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.02em'
+                }}>
+                  {card.label}
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Tangible Impact Stats */}
       <section className="section" style={{ position: 'relative', zIndex: 10 }}>
         <div className="container">
