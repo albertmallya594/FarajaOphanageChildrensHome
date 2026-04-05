@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Heart, Users, CheckCircle, Clock, ChevronRight, BookOpen, GraduationCap, Utensils, Stethoscope, Globe, Coins } from 'lucide-react';
+import { Heart, Users, CheckCircle, Clock, ChevronRight, BookOpen, GraduationCap, Utensils, Stethoscope, Globe, Coins, Milk } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
 
 // Images
@@ -253,31 +253,31 @@ const Home = () => {
               </Link>
             </div>
 
-            {/* Part 2: Faraja Projects */}
+            {/* Part 2: Faraja Development Projects */}
             <div className="projects-grid-wrapper">
               <div className="mb-4">
-                <h2 className="section-title" style={{ fontSize: '2.25rem', marginBottom: '1rem' }}>Faraja Projects</h2>
+                <h2 className="section-title" style={{ fontSize: '2.25rem', marginBottom: '1rem' }}>Faraja Development Projects</h2>
                 <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', marginBottom: '2rem' }}>
-                  Faraja Orphanage is committed to creating long-term, sustainable change through impactful community projects.
+                  Faraja Orphanage is committed to creating sustainable solutions that support vulnerable children and families. Our development projects focus on improving nutrition, generating income, and building a self-reliant future.
                 </p>
               </div>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem' }}>
                 {[
                   { 
-                    icon: <BookOpen />, 
-                    title: "Education Support", 
-                    desc: "Provides school fees, uniforms, and learning materials to ensure every child receives quality education." 
+                    icon: <Milk />, 
+                    title: "Livestock Project (Cows 🐄)", 
+                    desc: "Provides milk for nutrition, generates income, and supports the overall sustainability of the home." 
                   },
                   { 
-                    icon: <Stethoscope />, 
-                    title: "Health & Nutrition", 
-                    desc: "Ensures children receive regular medical check-ups, balanced meals, and proper healthcare services." 
+                    icon: <Utensils />, 
+                    title: "Poultry Project (Chickens 🐔)", 
+                    desc: "Provides eggs and meat, improves nutritional balance, and supports our daily feeding programs." 
                   },
                   { 
                     icon: <Users />, 
                     title: "Community Outreach", 
-                    desc: "Supports vulnerable families through visits, counseling, and and material assistance." 
+                    desc: "Supports vulnerable families through visits, counseling, and material assistance." 
                   },
                   { 
                     icon: <Coins />, 
@@ -302,8 +302,8 @@ const Home = () => {
               </div>
               
               <div style={{ marginTop: '2.5rem' }}>
-                <Link to="/activities" className="btn btn-primary" style={{ padding: '0.75rem 2rem' }}>
-                  Explore Our Projects <ChevronRight size={18} />
+                <Link to="/development-projects" className="btn btn-primary" style={{ padding: '0.75rem 2rem' }}>
+                  Explore Development Projects <ChevronRight size={18} />
                 </Link>
               </div>
             </div>
