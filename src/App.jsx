@@ -1,6 +1,8 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import PageLoader from './components/PageLoader';
+import { useEffect } from 'react';
 
 // Pages
 import Home from './pages/Home';
@@ -16,10 +18,18 @@ import AdminLogin from './pages/Admin/Login';
 import AdminDashboard from './pages/Admin/Dashboard';
 
 function App() {
+  const { pathname } = useLocation();
+
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <div className="app">
+      <PageLoader />
       <Navbar />
-      <main>
+      <main className="animate-fade-in" style={{ paddingTop: '80px', minHeight: '80vh' }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Heart, Users, CheckCircle, Clock, ChevronRight, BookOpen, GraduationCap, Utensils, Stethoscope, Globe, Coins, Milk } from 'lucide-react';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 // Images
 import heroImg from '../assets/hero_children_smiling.png';
@@ -9,8 +10,24 @@ import child1 from '../assets/child_portrait_1.png';
 
 const StatCounter = ({ end, label, suffix = '' }) => {
   const [count, setCount] = useState(0);
+  const [hasStarted, setHasStarted] = useState(false);
+  const counterRef = useRef(null);
 
   useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setHasStarted(true);
+        observer.disconnect();
+      }
+    }, { threshold: 0.5 });
+
+    if (counterRef.current) observer.observe(counterRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!hasStarted) return;
+    
     let start = 0;
     const duration = 2000;
     const increment = end / (duration / 16);
@@ -24,10 +41,10 @@ const StatCounter = ({ end, label, suffix = '' }) => {
       }
     }, 16);
     return () => clearInterval(timer);
-  }, [end]);
+  }, [end, hasStarted]);
 
   return (
-    <div className="stat-card" style={{ textAlign: 'center', padding: '2rem', backgroundColor: 'var(--surface)', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-md)' }}>
+    <div ref={counterRef} className="stat-card reveal" style={{ textAlign: 'center', padding: '2rem', backgroundColor: 'var(--surface)', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-md)' }}>
       <div style={{ fontSize: '3rem', fontWeight: 800, color: 'var(--primary)', marginBottom: '0.5rem' }}>
         {count}{suffix}
       </div>
@@ -37,8 +54,10 @@ const StatCounter = ({ end, label, suffix = '' }) => {
 };
 
 const Home = () => {
+  const revealRef = useScrollReveal();
+
   return (
-    <div className="page-home animate-fade-in">
+    <div className="page-home animate-fade-in" ref={revealRef}>
       {/* Hero Section */}
       <section style={{
         position: 'relative',
@@ -51,11 +70,11 @@ const Home = () => {
         backgroundAttachment: 'fixed',
         color: 'white'
       }}>
-        <div className="container text-center">
+        <div className="container text-center reveal">
           <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', maxWidth: '900px', margin: '0 auto 1.5rem', lineHeight: 1.1 }}>
             Providing a Haven of Comfort and a Future of Hope
           </h1>
-          <p style={{ fontSize: 'clamp(1.125rem, 2vw, 1.5rem)', maxWidth: '700px', margin: '0 auto 2.5rem', opacity: 0.9 }}>
+          <p style={{ fontSize: 'clamp(1.125rem, 2, 1.5rem)', maxWidth: '700px', margin: '0 auto 2.5rem', opacity: 0.9 }}>
             At Faraja Orphanage Children's Home, we transform lives through education, healthcare, and a loving community.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -91,7 +110,7 @@ const Home = () => {
       {/* Tangible Impact Stats */}
       <section className="section" style={{ position: 'relative', zIndex: 10 }}>
         <div className="container">
-          <div className="text-center mb-6">
+          <div className="text-center mb-6 reveal">
             <h2 className="section-title">Our Tangible Impact</h2>
             <div style={{ width: '60px', height: '4px', backgroundColor: 'var(--primary)', margin: '0 auto', borderRadius: '2px' }}></div>
             <p className="mt-4" style={{ color: 'var(--text-muted)' }}>Through the generous support of our partners, we make real, measurable changes.</p>
@@ -102,7 +121,7 @@ const Home = () => {
             <StatCounter end={15} suffix="" label="Water Wells Built" />
             <StatCounter end={1200} suffix="+" label="Blankets Distributed" />
           </div>
-          <div style={{ padding: '2rem', backgroundColor: 'var(--surface)', borderRadius: 'var(--radius-lg)', marginTop: '2rem', textAlign: 'center', border: '1px solid #e5e7eb' }}>
+          <div className="reveal" style={{ padding: '2rem', backgroundColor: 'var(--surface)', borderRadius: 'var(--radius-lg)', marginTop: '2rem', textAlign: 'center', border: '1px solid #e5e7eb' }}>
             <h3 style={{ fontSize: '1.25rem', color: 'var(--primary)' }}>Over $20,000 in School Supplies Gifted</h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Providing uniforms, textbooks, and tuition assistance to ensure no child is left behind in education.</p>
           </div>
@@ -121,11 +140,11 @@ const Home = () => {
           
           <div className="grid-3" style={{ gap: '1rem' }}>
             {[
-              { title: 'Our mission', link: '/about', img: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-              { title: 'What we do', link: '/activities', img: 'https://images.unsplash.com/photo-1579208575657-c59520a4b7ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-              { title: 'Where we serve', link: '/about', img: 'https://images.unsplash.com/photo-1542810634-71277d95dcbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' }
+              { title: 'Our mission', link: '/about', img: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', delay: 'delay-100' },
+              { title: 'What we do', link: '/activities', img: 'https://images.unsplash.com/photo-1579208575657-c59520a4b7ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', delay: 'delay-200' },
+              { title: 'Where we serve', link: '/about', img: 'https://images.unsplash.com/photo-1542810634-71277d95dcbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', delay: 'delay-300' }
             ].map((pillar, idx) => (
-              <Link key={idx} to={pillar.link} className="hover-lift" style={{ 
+              <Link key={idx} to={pillar.link} className={`hover-lift reveal ${pillar.delay}`} style={{ 
                 position: 'relative', 
                 height: '350px', 
                 borderRadius: 'var(--radius-sm)', 
@@ -156,13 +175,13 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Keeping Families Together (General Program Info) */}
+      {/* Keeping Families Together (General Program Information) */}
       <section className="section section--light">
         <div className="container grid-2">
-          <div className="image-wrapper hover-lift" style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)' }}>
+          <div className="image-wrapper hover-lift reveal" style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)' }}>
             <img src={communityImg} alt="Community Support" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
-          <div className="content-wrapper">
+          <div className="content-wrapper reveal delay-200">
             <h2 className="section-title">Keeping Families Together</h2>
             <div style={{ width: '60px', height: '4px', backgroundColor: 'var(--primary)', marginBottom: '1.5rem', borderRadius: '2px' }}></div>
             <p className="mb-4" style={{ fontSize: '1.125rem', color: 'var(--text-muted)' }}>
@@ -183,7 +202,7 @@ const Home = () => {
       {/* Meet Rehema (Storytelling Section) */}
       <section className="section section--light">
         <div className="container grid-2" style={{ alignItems: 'center' }}>
-          <div className="content-wrapper" style={{ order: 2 }}>
+          <div className="content-wrapper reveal" style={{ order: 2 }}>
             <h2 className="section-title">Meet Rehema</h2>
             <div style={{ width: '60px', height: '4px', backgroundColor: 'var(--secondary)', marginBottom: '1.5rem', borderRadius: '2px' }}></div>
             <p className="mb-4" style={{ fontSize: '1.125rem', color: 'var(--text-muted)' }}>
@@ -196,7 +215,7 @@ const Home = () => {
               Help Save Children Like Rehema <ChevronRight size={18} />
             </Link>
           </div>
-          <div className="image-wrapper hover-lift" style={{ order: 1, borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)', position: 'relative' }}>
+          <div className="image-wrapper hover-lift reveal delay-200" style={{ order: 1, borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)', position: 'relative' }}>
              <img src={child1} alt="Meet Rehema" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
              <div style={{ position: 'absolute', bottom: '1rem', left: '1rem', backgroundColor: 'var(--accent)', color: 'black', padding: '0.5rem 1rem', borderRadius: 'var(--radius-full)', fontWeight: 'bold' }}>Read Her Story</div>
           </div>
@@ -209,7 +228,7 @@ const Home = () => {
           <div className="grid-2" style={{ alignItems: 'flex-start', gap: '4rem' }}>
             
             {/* Part 1: Child Sponsorship */}
-            <div className="sponsorship-info animate-fade-in">
+            <div className="sponsorship-info reveal">
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem', color: 'var(--primary)' }}>
                 <Heart size={32} fill="var(--primary)" />
                 <h2 className="section-title" style={{ margin: 0, fontSize: '2.25rem' }}>Child Sponsorship</h2>
@@ -222,25 +241,25 @@ const Home = () => {
               </p>
               
               <ul style={{ listStyle: 'none', padding: 0, marginBottom: '2.5rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem' }}>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontWeight: 600, color: 'var(--text-main)' }}>
+                <li className="reveal" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontWeight: 600, color: 'var(--text-main)' }}>
                   <div style={{ padding: '0.5rem', backgroundColor: 'rgba(228, 93, 37, 0.1)', borderRadius: '50%', color: 'var(--primary)' }}>
                     <GraduationCap size={20} />
                   </div>
                   School fees & supplies
                 </li>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontWeight: 600, color: 'var(--text-main)' }}>
+                <li className="reveal delay-100" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontWeight: 600, color: 'var(--text-main)' }}>
                   <div style={{ padding: '0.5rem', backgroundColor: 'rgba(228, 93, 37, 0.1)', borderRadius: '50%', color: 'var(--primary)' }}>
                     <Utensils size={20} />
                   </div>
                   Nutritious meals
                 </li>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontWeight: 600, color: 'var(--text-main)' }}>
+                <li className="reveal delay-200" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontWeight: 600, color: 'var(--text-main)' }}>
                   <div style={{ padding: '0.5rem', backgroundColor: 'rgba(228, 93, 37, 0.1)', borderRadius: '50%', color: 'var(--primary)' }}>
                     <Stethoscope size={20} />
                   </div>
                   Healthcare & medical
                 </li>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontWeight: 600, color: 'var(--text-main)' }}>
+                <li className="reveal delay-300" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontWeight: 600, color: 'var(--text-main)' }}>
                   <div style={{ padding: '0.5rem', backgroundColor: 'rgba(228, 93, 37, 0.1)', borderRadius: '50%', color: 'var(--primary)' }}>
                     <Heart size={20} />
                   </div>
@@ -248,13 +267,13 @@ const Home = () => {
                 </li>
               </ul>
               
-              <Link to="/donate" className="btn btn-primary" style={{ padding: '1rem 2.5rem', fontSize: '1.125rem' }}>
+              <Link to="/donate" className="btn btn-primary reveal delay-400" style={{ padding: '1rem 2.5rem', fontSize: '1.125rem' }}>
                 Sponsor a Child Now
               </Link>
             </div>
 
             {/* Part 2: Faraja Development Projects */}
-            <div className="projects-grid-wrapper">
+            <div className="projects-grid-wrapper reveal delay-200">
               <div className="mb-4">
                 <h2 className="section-title" style={{ fontSize: '2.25rem', marginBottom: '1rem' }}>Faraja Development Projects</h2>
                 <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', marginBottom: '2rem' }}>
@@ -267,25 +286,29 @@ const Home = () => {
                   { 
                     icon: <Milk />, 
                     title: "Livestock Project (Cows 🐄)", 
-                    desc: "Provides milk for nutrition, generates income, and supports the overall sustainability of the home." 
+                    desc: "Provides milk for nutrition, generates income, and supports the overall sustainability of the home.",
+                    delay: 'delay-100'
                   },
                   { 
                     icon: <Utensils />, 
                     title: "Poultry Project (Chickens 🐔)", 
-                    desc: "Provides eggs and meat, improves nutritional balance, and supports our daily feeding programs." 
+                    desc: "Provides eggs and meat, improves nutritional balance, and supports our daily feeding programs.",
+                    delay: 'delay-200'
                   },
                   { 
                     icon: <Users />, 
                     title: "Community Outreach", 
-                    desc: "Supports vulnerable families through visits, counseling, and material assistance." 
+                    desc: "Supports vulnerable families through visits, counseling, and material assistance.",
+                    delay: 'delay-300'
                   },
                   { 
                     icon: <Coins />, 
                     title: "Economic Empowerment", 
-                    desc: "Helps families start small businesses and become financially independent through training." 
+                    desc: "Helps families start small businesses and become financially independent through training.",
+                    delay: 'delay-400'
                   }
                 ].map((item, i) => (
-                  <div key={i} className="hover-lift" style={{ 
+                  <div key={i} className={`hover-lift reveal ${item.delay}`} style={{ 
                     padding: '1.5rem', 
                     backgroundColor: 'white', 
                     borderRadius: 'var(--radius-md)', 
@@ -357,25 +380,29 @@ const Home = () => {
               {
                 title: "Back-to-School Support Program",
                 content: "Faraja provided school supplies and uniforms to ensure all children attend school this term.",
-                icon: <BookOpen className="mb-2" size={32} color="var(--primary)" />
+                icon: <BookOpen className="mb-2" size={32} color="var(--primary)" />,
+                delay: 'delay-100'
               },
               {
                 title: "Community Outreach Initiative",
                 content: "Our team supported vulnerable families in Arusha to prevent child homelessness.",
-                icon: <Users className="mb-2" size={32} color="var(--primary)" />
+                icon: <Users className="mb-2" size={32} color="var(--primary)" />,
+                delay: 'delay-200'
               },
               {
                 title: "Health Check-Up Campaign",
                 content: "Children received medical care and nutritional support.",
-                icon: <Heart className="mb-2" size={32} color="var(--primary)" />
+                icon: <Heart className="mb-2" size={32} color="var(--primary)" />,
+                delay: 'delay-300'
               },
               {
                 title: "Volunteer Program Launch",
                 content: "New volunteers joined to support education and mentorship activities.",
-                icon: <Users className="mb-2" size={32} color="var(--primary)" />
+                icon: <Users className="mb-2" size={32} color="var(--primary)" />,
+                delay: 'delay-400'
               }
             ].map((news, idx) => (
-              <div key={idx} className="hover-lift" style={{ 
+              <div key={idx} className={`hover-lift reveal ${news.delay}`} style={{ 
                 padding: '2rem', 
                 backgroundColor: 'var(--surface)', 
                 borderRadius: 'var(--radius-lg)', 

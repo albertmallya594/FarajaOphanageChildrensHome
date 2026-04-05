@@ -179,7 +179,41 @@ img {
 }
 
 .animate-fade-in {
-  animation: fadeInData 0.8s ease-out forwards;
+  animation: fadeInData var(--transition) ease-out forwards;
+}
+
+/* Scroll Reveal Classes */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.reveal-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Staggered Delay Utilities */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+
+/* Image Zoom */
+.img-zoom-container {
+   overflow: hidden;
+   border-radius: inherit;
+}
+
+.img-zoom {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.img-zoom-container:hover .img-zoom {
+  transform: scale(1.08);
 }
 
 .hover-lift {
@@ -187,8 +221,8 @@ img {
 }
 
 .hover-lift:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.15);
 }
 
 /* Forms */
@@ -291,7 +325,7 @@ img {
 .btn-primary:hover {
   background-color: var(--primary-hover);
   box-shadow: var(--shadow-glow);
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.03);
 }
 
 .btn-secondary {
@@ -302,7 +336,7 @@ img {
 
 .btn-secondary:hover {
   background-color: var(--secondary-hover);
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.03);
 }
 
 .btn-outline {
