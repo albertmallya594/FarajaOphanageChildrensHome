@@ -237,7 +237,7 @@ const Home = () => {
                 At Faraja Orphanage Children’s Home, child sponsorship is one of the most powerful ways to make a lasting impact. By sponsoring a child, you directly support their education, healthcare, daily meals, and emotional wellbeing. 
               </p>
               <p className="mb-6" style={{ fontSize: '1.125rem', lineHeight: '1.7', color: 'var(--text-muted)' }}>
-                Your contribution ensures that each child grows up in a safe, loving environment with access to opportunities that shape a brighter future. Sponsorship is not just support, it is a commitment to changing a life.
+                Your contribution ensures that each child grows up in a safe, loving environment with access to education at East African Primary Schools and opportunities that shape a brighter future.
               </p>
               
               <ul style={{ listStyle: 'none', padding: 0, marginBottom: '2.5rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem' }}>
@@ -267,8 +267,8 @@ const Home = () => {
                 </li>
               </ul>
               
-              <Link to="/donate" className="btn btn-primary reveal delay-400" style={{ padding: '1rem 2.5rem', fontSize: '1.125rem' }}>
-                Sponsor a Child Now
+              <Link to="/sponsorship" className="btn btn-primary reveal delay-400" style={{ padding: '1rem 2.5rem', fontSize: '1.125rem' }}>
+                Join Sponsorship Program
               </Link>
             </div>
 
@@ -277,7 +277,7 @@ const Home = () => {
               <div className="mb-4">
                 <h2 className="section-title" style={{ fontSize: '2.25rem', marginBottom: '1rem' }}>Faraja Development Projects</h2>
                 <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', marginBottom: '2rem' }}>
-                  Faraja Orphanage is committed to creating sustainable solutions that support vulnerable children and families. Our development projects focus on improving nutrition, generating income, and building a self-reliant future.
+                  Faraja Orphanage is committed to creating sustainable solutions that support vulnerable children and families. Our development projects focus on building a self-reliant future.
                 </p>
               </div>
 
@@ -286,25 +286,25 @@ const Home = () => {
                   { 
                     icon: <Milk />, 
                     title: "Livestock Project (Cows 🐄)", 
-                    desc: "Provides milk for nutrition, generates income, and supports the overall sustainability of the home.",
+                    desc: "Provides fresh nutrition, generates income, and fuels our sustainability since 2022.",
                     delay: 'delay-100'
                   },
                   { 
                     icon: <Utensils />, 
                     title: "Poultry Project (Chickens 🐔)", 
-                    desc: "Provides eggs and meat, improves nutritional balance, and supports our daily feeding programs.",
+                    desc: "Ensures essential protein intake through daily egg harvest and sustainable flock growth.",
                     delay: 'delay-200'
                   },
                   { 
-                    icon: <Users />, 
-                    title: "Community Outreach", 
-                    desc: "Supports vulnerable families through visits, counseling, and material assistance.",
+                    icon: <Globe />, // Agriculture icon
+                    title: "Agriculture Project (Farming 🌱)", 
+                    desc: "Growing seasonal crops like maize and beans to achieve food self-sufficiency.",
                     delay: 'delay-300'
                   },
                   { 
                     icon: <Coins />, 
                     title: "Economic Empowerment", 
-                    desc: "Helps families start small businesses and become financially independent through training.",
+                    desc: "Building a foundation for the orphanage to thrive independently of long-term aid.",
                     delay: 'delay-400'
                   }
                 ].map((item, i) => (
@@ -326,10 +326,11 @@ const Home = () => {
               
               <div style={{ marginTop: '2.5rem' }}>
                 <Link to="/development-projects" className="btn btn-primary" style={{ padding: '0.75rem 2rem' }}>
-                  Explore Development Projects <ChevronRight size={18} />
+                  Explore All Projects <ChevronRight size={18} />
                 </Link>
               </div>
             </div>
+
           </div>
         </div>
 
