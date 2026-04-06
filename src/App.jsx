@@ -12,6 +12,7 @@ import Volunteers from './pages/Volunteers';
 import Donation from './pages/Donation';
 import Contact from './pages/Contact';
 import DevelopmentProjects from './pages/DevelopmentProjects';
+import Sponsorship from './pages/Sponsorship';
 
 // Admin Pages
 import AdminLogin from './pages/Admin/Login';
@@ -38,6 +39,7 @@ function App() {
           <Route path="/donate" element={<Donation />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/development-projects" element={<DevelopmentProjects />} />
+          <Route path="/sponsorship" element={<Sponsorship />} />
           
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminLogin />} />

@@ -16,7 +16,9 @@ import {
   Quote,
   Activity,
   BookOpen,
-  Plus
+  Plus,
+  Sprout,
+  X
 } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
@@ -31,11 +33,54 @@ const placeholderImage = (text) => `https://placehold.co/800x600/e45d25/ffffff?t
 
 const DevelopmentProjects = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedProject, setSelectedProject] = useState(null);
   const revealRef = useScrollReveal();
 
   const handleImageError = (e, text) => {
     e.target.src = placeholderImage(text);
   };
+
+  const projects = [
+    {
+      id: 'livestock',
+      title: "Livestock Project (Cows 🐄)",
+      tag: "Flagship",
+      icon: <Milk size={32} />,
+      color: "var(--primary)",
+      image: cowShelter,
+      shortDesc: "Our core sustainability initiative providing daily nutrition and financial stability since 2022.",
+      fullDesc: "The Faraja Cow Project is the backbone of our self-reliance strategy. Started with a single donated cow, we have expanded to a healthy herd that serves both nutritional and economic purposes. This project teaches our children the value of agriculture and provides a consistent source of revenue and fresh dairy products.",
+      objectives: ["Provide 100% of the orphanage's milk needs", "Generate surplus income for education fees", "Create organic fertilizer for our crops", "Teach animal husbandry skills"],
+      benefits: ["Fresh Milk & Meat daily", "Income from surplus sales", "Improved soil health", "Sustainability training"],
+      gallery: [cowGrazing, cowShelter, cowSingle, cowHerd]
+    },
+    {
+      id: 'poultry',
+      title: "Poultry Project (Chickens 🐔)",
+      tag: "Nutrition",
+      icon: <Utensils size={32} />,
+      color: "var(--sun)",
+      image: "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=800&q=80",
+      shortDesc: "Ensuring a steady supply of protein through eggs and meat for over 200 children in our programs.",
+      fullDesc: "Launched to address immediate protein deficiencies, the poultry project is a fast-growing initiative that provides daily fresh eggs. It is a low-maintenance, high-yield project that significantly reduces our food procurement costs while ensuring our children have a balanced diet rich in essential proteins.",
+      objectives: ["Harvest 150+ eggs daily", "Maintain a healthy flock of 500+ chickens", "Provide organic poultry meat weekly", "Reduce food costs by 15%"],
+      benefits: ["Daily Fresh Eggs", "Balanced protein intake", "Fast growth & high yield", "Community sales potential"],
+      gallery: ["https://images.unsplash.com/photo-1582559930438-e6fd428cd82d?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=800&q=80"]
+    },
+    {
+      id: 'agriculture',
+      title: "Agriculture Project (Farming 🌱)",
+      tag: "New Project",
+      icon: <Sprout size={32} />,
+      color: "var(--accent)",
+      image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=800&q=80",
+      shortDesc: "Growing seasonal crops to support daily meals and promote long-term food security at Faraja.",
+      fullDesc: "The Agriculture Project focuses on utilizing our fertile land to grow essential crops like maize, beans, and vegetables. This initiative not only provides fresh, organic food for our daily meals but also serves as an outdoor classroom where children learn sustainable farming techniques that they can carry into adulthood.",
+      objectives: ["Achieve 40% food self-sufficiency", "Implement organic irrigation systems", "Grow a diverse range of seasonal vegetables", "Foster agricultural entrepreneurship"],
+      benefits: ["Fresh Organic Produce", "Reduced market dependency", "Practical farming education", "Climate-resilient crops"],
+      gallery: ["https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=800&q=80"]
+    }
+  ];
 
   return (
     <div className="development-projects-page" ref={revealRef}>
@@ -66,7 +111,7 @@ const DevelopmentProjects = () => {
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="#projects-grid" className="btn btn-primary" style={{ padding: '1rem 2.5rem', fontSize: '1.1rem' }}>
-              View Our Projects <ArrowRight size={18} style={{ marginLeft: '0.5rem' }} />
+              Explore Our Initiatives <ArrowRight size={18} style={{ marginLeft: '0.5rem' }} />
             </a>
             <a href="#gallery" className="btn btn-outline" style={{ padding: '1rem 2.5rem', fontSize: '1.1rem', borderColor: 'white', color: 'white' }}>
               Project Gallery
@@ -88,80 +133,65 @@ const DevelopmentProjects = () => {
         </div>
       </section>
 
-      {/* 3. PROJECT TYPES */}
+      {/* 3. PROJECT TYPES GRID */}
       <section id="projects-grid" className="section--warm">
         <div className="container">
           <div className="text-center mb-6 reveal">
-            <h2 className="section-title">Our Initiatives</h2>
+            <h2 className="section-title">Our Active Projects</h2>
             <p className="section-subtitle" style={{ maxWidth: '700px', margin: '0 auto 4rem' }}>
-              We implement diverse agricultural and community projects designed to provide long-term impact within the orphanage and the surrounding community.
+              Discover how our diverse agricultural and community projects are designed to provide long-term impact within the orphanage and the surrounding community.
             </p>
           </div>
           
-          <div className="grid-2" style={{ gap: '2.5rem', marginBottom: '4rem' }}>
-            {/* Livestock Card */}
-            <div className="card reveal" style={{ padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
-              <div className="img-zoom-container" style={{ height: '300px' }}>
-                <img src={cowShelter} alt="Cow Project" className="img-zoom" style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => handleImageError(e, 'Cow Project')} />
-              </div>
-              <div style={{ padding: '2.5rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem', color: 'var(--primary)' }}>
-                  <Milk size={28} />
-                  <h3 style={{ margin: 0, fontSize: '1.75rem' }}>Livestock Project (Cows 🐄)</h3>
+          <div className="grid-3" style={{ gap: '2.5rem', marginBottom: '4rem' }}>
+            {projects.map((project, index) => (
+              <div 
+                key={project.id} 
+                className={`card hover-lift reveal delay-${(index + 1) * 100}`} 
+                style={{ padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column', cursor: 'pointer' }}
+                onClick={() => setSelectedProject(project)}
+              >
+                <div className="img-zoom-container" style={{ height: '240px', position: 'relative' }}>
+                  <img src={project.image} alt={project.title} className="img-zoom" style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => handleImageError(e, project.title)} />
+                  <div style={{ position: 'absolute', top: '1rem', right: '1rem', backgroundColor: project.color, color: 'white', padding: '0.3rem 0.8rem', borderRadius: '20px', fontSize: '0.75rem', fontWeight: 800 }}>
+                    {project.tag}
+                  </div>
                 </div>
-                <p className="mb-4" style={{ color: 'var(--text-muted)', fontSize: '1.1rem' }}>
-                  Started in 2022 with one donated cow, our herd has grown to 10 cows by 2026. This project is a cornerstone of our sustainability efforts.
-                </p>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle size={18} color="var(--primary)"/> Fresh Milk & Meat</div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle size={18} color="var(--primary)"/> Income Generation</div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle size={18} color="var(--primary)"/> Organic Fertilizer</div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle size={18} color="var(--primary)"/> Sustainability</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Poultry Card */}
-            <div className="card reveal delay-200" style={{ padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
-              <div className="img-zoom-container" style={{ height: '300px' }}>
-                <img src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=800&q=80" alt="Poultry Project" className="img-zoom" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
-              <div style={{ padding: '2.5rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem', color: 'var(--accent)' }}>
-                  <Utensils size={28} />
-                  <h3 style={{ margin: 0, fontSize: '1.75rem' }}>Poultry Project (Chickens 🐔)</h3>
-                </div>
-                <p className="mb-4" style={{ color: 'var(--text-muted)', fontSize: '1.1rem' }}>
-                  Our poultry initiative provides a steady supply of eggs and meat, essential for the children's protein needs and nutritional balance.
-                </p>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle size={18} color="var(--accent)"/> Daily Fresh Eggs</div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle size={18} color="var(--accent)"/> Nutritional Balance</div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle size={18} color="var(--accent)"/> Low Maintenance</div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle size={18} color="var(--accent)"/> Community Sales</div>
+                <div style={{ padding: '2rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem', color: project.color }}>
+                    {project.icon}
+                    <h3 style={{ margin: 0, fontSize: '1.4rem', fontWeight: 800 }}>{project.title}</h3>
+                  </div>
+                  <p className="mb-4" style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.6 }}>
+                    {project.shortDesc}
+                  </p>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                     <span style={{ fontWeight: 700, fontSize: '0.85rem', color: project.color, textTransform: 'uppercase', letterSpacing: '1px' }}>Learn More</span>
+                     <ArrowRight size={18} color={project.color} />
+                  </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 4. GALLERY */}
+      {/* 4. DUAL GALLERY */}
       <section id="gallery" className="section bg-white text-center">
         <div className="container">
           <div className="reveal">
             <h2 className="section-title">Projects in Action</h2>
-            <p className="section-subtitle">A glimpse into the daily operations and progress of our development initiatives.</p>
+            <p className="section-subtitle">Real moments from our fields and shelters. Click an image to enlarge.</p>
           </div>
           
           <div className="grid-3" style={{ gap: '1.5rem' }}>
             {[
               { src: cowGrazing, alt: "Cows Grazing", label: "Livestock", delay: 'delay-100' },
               { src: cowShelter, alt: "Animal Shelter", label: "Infrastructure", delay: 'delay-200' },
-              { src: cowSingle, alt: "Dairy Cow", label: "Nutrition", delay: 'delay-300' },
+              { src: cowSingle, alt: "Dairy Cow", label: "Dairy", delay: 'delay-300' },
               { src: "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=400&q=80", alt: "Poultry Farming", label: "Chickens", delay: 'delay-400' },
-              { src: "https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=400&q=80", alt: "Sustainability", label: "Future", delay: 'delay-500' },
-              { src: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=400&q=80", alt: "Farm Land", label: "Growth", delay: 'delay-600' }
+              { src: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=400&q=80", alt: "Green Farm", label: "Agriculture", delay: 'delay-500' },
+              { src: founderChild, alt: "Children Learning", label: "Education", delay: 'delay-600' }
             ].map((img, i) => (
               <div key={i} className={`hover-lift reveal ${img.delay}`} style={{ 
                 height: '300px', 
@@ -173,8 +203,8 @@ const DevelopmentProjects = () => {
                 <div className="img-zoom-container" style={{ width: '100%', height: '100%' }}>
                    <img src={img.src} alt={img.alt} className="img-zoom" style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => handleImageError(e, img.label)} />
                 </div>
-                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '1rem', background: 'linear-gradient(transparent, rgba(0,0,0,0.7))', color: 'white', textAlign: 'left' }}>
-                  <span style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px' }}>{img.label}</span>
+                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '1.25rem', background: 'linear-gradient(transparent, rgba(0,0,0,0.8))', color: 'white', textAlign: 'left' }}>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--sun)' }}>{img.label}</span>
                 </div>
               </div>
             ))}
@@ -182,7 +212,77 @@ const DevelopmentProjects = () => {
         </div>
       </section>
 
-      {/* Lightbox Modal */}
+      {/* Project Detail Modal */}
+      {selectedProject && (
+        <div className="modal-overlay reveal-visible" style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0,0,0,0.8)', zIndex: 1005, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem', backdropFilter: 'blur(8px)' }} onClick={() => setSelectedProject(null)}>
+           <div className="modal-content" style={{ backgroundColor: 'white', width: '100%', maxWidth: '1000px', maxHeight: '90vh', borderRadius: '30px', overflowY: 'auto', position: 'relative', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5)' }} onClick={e => e.stopPropagation()}>
+              <button 
+                onClick={() => setSelectedProject(null)}
+                style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', background: 'white', border: 'none', color: 'var(--text-main)', cursor: 'pointer', zIndex: 10, width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 5px 15px rgba(0,0,0,0.1)' }}
+              >
+                <X size={24} />
+              </button>
+              
+              <div style={{ height: '350px', position: 'relative' }}>
+                 <img src={selectedProject.image} alt={selectedProject.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => handleImageError(e, selectedProject.title)} />
+                 <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', padding: '3rem 2.5rem', background: 'linear-gradient(transparent, rgba(0,0,0,0.9))', color: 'white' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.5rem' }}>
+                       {selectedProject.icon}
+                       <h2 style={{ fontSize: '2.5rem', fontWeight: 800, margin: 0 }}>{selectedProject.title}</h2>
+                    </div>
+                    <span style={{ fontWeight: 600, opacity: 0.8, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.9rem' }}>{selectedProject.tag} Initiative</span>
+                 </div>
+              </div>
+              
+              <div style={{ padding: '3rem 2.5rem' }}>
+                 <div className="grid-2" style={{ alignItems: 'start', gap: '4rem' }}>
+                    <div>
+                       <h4 style={{ color: selectedProject.color, fontSize: '1.25rem', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}><BookOpen size={20} /> Project Overview</h4>
+                       <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: '2rem' }}>{selectedProject.fullDesc}</p>
+                       
+                       <h4 style={{ color: selectedProject.color, fontSize: '1.25rem', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}><ShieldCheck size={20} /> Project Benefits</h4>
+                       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                          {selectedProject.benefits.map((benefit, i) => (
+                            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.95rem', fontWeight: 500 }}>
+                               <CheckCircle size={16} color={selectedProject.color} /> {benefit}
+                            </div>
+                          ))}
+                       </div>
+                    </div>
+                    <div>
+                       <div style={{ backgroundColor: '#fcf8f6', padding: '2rem', borderRadius: '20px', marginBottom: '2rem' }}>
+                          <h4 style={{ marginBottom: '1.5rem', fontSize: '1.1rem', fontWeight: 800 }}>Primary Objectives</h4>
+                          <ul style={{ listStyle: 'none', padding: 0 }}>
+                             {selectedProject.objectives.map((obj, i) => (
+                               <li key={i} style={{ marginBottom: '0.75rem', display: 'flex', gap: '0.75rem', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+                                  <ArrowRight size={16} style={{ color: selectedProject.color, flexShrink: 0, marginTop: '2px' }} /> {obj}
+                               </li>
+                             ))}
+                          </ul>
+                       </div>
+                       
+                       <Link to="/donate" className="btn btn-primary" style={{ width: '100%', padding: '1.25rem' }}>
+                          <Heart size={20} fill="white" style={{ marginRight: '0.5rem' }} /> Support This Project
+                       </Link>
+                    </div>
+                 </div>
+                 
+                 <div style={{ marginTop: '3.5rem' }}>
+                    <h4 style={{ marginBottom: '1.5rem', fontSize: '1.1rem', fontWeight: 800 }}>Project Gallery</h4>
+                    <div className="grid-3" style={{ gap: '1rem' }}>
+                       {selectedProject.gallery.map((img, i) => (
+                          <div key={i} className="img-zoom-container" style={{ height: '180px', borderRadius: '15px' }}>
+                             <img src={img} alt={`Gallery ${i}`} className="img-zoom" style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => handleImageError(e, 'Gallery')} />
+                          </div>
+                       ))}
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+      )}
+
+      {/* Lightbox Modal for Gallery */}
       {selectedImage && (
         <div 
           style={{ 
@@ -192,7 +292,7 @@ const DevelopmentProjects = () => {
             width: '100%', 
             height: '100%', 
             backgroundColor: 'rgba(0,0,0,0.9)', 
-            zIndex: 1000, 
+            zIndex: 1010, 
             display: 'flex', 
             alignItems: 'center', 
             justifyContent: 'center',
@@ -217,188 +317,52 @@ const DevelopmentProjects = () => {
             />
             <div style={{ marginTop: '1.5rem', textAlign: 'center', color: 'white' }}>
                <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>{selectedImage.alt}</h3>
-               <span style={{ color: 'var(--primary)', fontWeight: 700, textTransform: 'uppercase' }}>{selectedImage.label}</span>
+               <span style={{ color: 'var(--sun)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px' }}>{selectedImage.label}</span>
             </div>
           </div>
         </div>
       )}
 
-      {/* 5. FLAGSHIP PROJECT: THE COW PROJECT (Expanded Details) */}
-      <section className="section section--warm text-center">
-        <div className="container reveal">
-          <div style={{ color: 'var(--primary)', fontWeight: 700, marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '1px' }}>Deep Dive</div>
-          <h2 className="section-title">Focus: The Faraja Cow Project</h2>
-          <div className="grid-3 mb-6">
-            <div className="card reveal delay-100" style={{ padding: '2.5rem' }}>
-              <Users size={48} color="var(--primary)" className="mb-3" />
-              <h3 style={{ fontSize: '3rem', fontWeight: 800 }}>10</h3>
-              <p style={{ fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '1px' }}>Total Cows</p>
-            </div>
-            <div className="card reveal delay-200" style={{ padding: '2.5rem' }}>
-              <TrendingUp size={48} color="var(--accent)" className="mb-3" />
-              <h3 style={{ fontSize: '3rem', fontWeight: 800 }}>$4,350</h3>
-              <p style={{ fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '1px' }}>Estimated Value</p>
-            </div>
-            <div className="card reveal delay-300" style={{ padding: '2.5rem', textAlign: 'left' }}>
-              <h4 className="mb-4" style={{ textAlign: 'center', borderBottom: '2px solid var(-- sun)', paddingBottom: '0.5rem' }}>Value Breakdown</h4>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                 <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.5rem 0', borderBottom: '1px solid #f5f5f5' }}>
-                  <span>Small Cows</span>
-                  <strong style={{ color: 'var(--accent)' }}>$350</strong>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.5rem 0', borderBottom: '1px solid #f5f5f5' }}>
-                  <span>Medium Cows</span>
-                  <strong style={{ color: 'var(--accent)' }}>$450</strong>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.5rem 0' }}>
-                  <span>Pregnant Cows</span>
-                  <strong style={{ color: 'var(--accent)' }}>$500</strong>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. STRATEGIC OBJECTIVES */}
-      <section className="section section--accent text-center">
-        <div className="container">
-          <h2 className="section-title reveal" style={{ color: 'white' }}>Strategic Objectives</h2>
-          <div className="grid-4" style={{ gap: '1.5rem' }}>
-            {[
-              { icon: <Milk size={32}/>, title: "Nutrition", p: "Milk, Meat & Eggs", delay: 'delay-100' },
-              { icon: <DollarSign size={32}/>, title: "Daily Income", p: "Generate funds", delay: 'delay-200' },
-              { icon: <Users size={32}/>, title: "Support Kids", p: "200+ annually", delay: 'delay-300' },
-              { icon: <ShieldCheck size={32}/>, title: "Sustainability", p: "Long-term solutions", delay: 'delay-400' }
-            ].map((obj, i) => (
-              <div key={i} className={`card hover-lift reveal ${obj.delay}`} style={{ padding: '2rem', backgroundColor: 'rgba(255,255,255,0.1)', border: 'none', color: 'white' }}>
-                 <div style={{ marginBottom: '1.5rem', display: 'inline-flex', padding: '1rem', backgroundColor: 'rgba(255,255,255,0.2)', borderRadius: '15px' }}>{obj.icon}</div>
-                 <h4 style={{ color: 'white', marginBottom: '0.5rem' }}>{obj.title}</h4>
-                 <p style={{ opacity: 0.8, fontSize: '0.9rem' }}>{obj.p}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 7. JOURNEY & TIMELINE */}
+      {/* 5. ROADMAP (Retained but simplified) */}
       <section className="section section--warm">
         <div className="container reveal" style={{ maxWidth: '900px' }}>
           <h2 className="section-title text-center">Development Roadmap (2022–2031)</h2>
-          <div className="timeline-container" style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-            <div className="card reveal" style={{ padding: 0, overflow: 'hidden' }}>
-              <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-                <thead>
-                  <tr style={{ backgroundColor: 'var(--primary)', color: 'white' }}>
-                    <th style={{ padding: '1.25rem', textAlign: 'left' }}>Phase</th>
-                    <th style={{ padding: '1.25rem', textAlign: 'center' }}>Milestone</th>
-                    <th style={{ padding: '1.25rem', textAlign: 'right' }}>Status</th>
+          <div className="card reveal" style={{ padding: 0, overflow: 'hidden', border: 'none', boxShadow: 'var(--shadow-md)' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+              <thead>
+                <tr style={{ backgroundColor: 'var(--accent)', color: 'white' }}>
+                  <th style={{ padding: '1.5rem', textAlign: 'left' }}>Phase</th>
+                  <th style={{ padding: '1.5rem', textAlign: 'center' }}>Milestone</th>
+                  <th style={{ padding: '1.5rem', textAlign: 'right' }}>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { year: "2022", note: "Cow Project Launch", status: "Active", primary: true },
+                  { year: "2024", note: "Poultry Project Launch", status: "Active", primary: true },
+                  { year: "2026", note: "Agriculture & Infrastructure", status: "In Progress", primary: false },
+                  { year: "2031", note: "Full Sustainability Goal", status: "Vision", primary: false, special: true }
+                ].map((item, i) => (
+                  <tr key={i} style={{ borderBottom: '1px solid #eee', backgroundColor: item.special ? '#f0fdf4' : 'transparent' }}>
+                    <td style={{ padding: '1.5rem', fontWeight: 700 }}>{item.year}</td>
+                    <td style={{ padding: '1.5rem', textAlign: 'center', color: item.special ? 'var(--accent)' : 'var(--text-muted)' }}>{item.note}</td>
+                    <td style={{ padding: '1.5rem', textAlign: 'right', fontWeight: 800, color: item.primary ? 'var(--accent)' : 'var(--sun)' }}>{item.status}</td>
                   </tr>
-                </thead>
-                <tbody>
-                  {[
-                    { year: "2022", note: "Cow Project Launch", cows: "Active" },
-                    { year: "2024", note: "Poultry Project Launch", cows: "Active" },
-                    { year: "2026", note: "Infrastructure Expansion", cows: "In Progress" },
-                    { year: "2028", note: "Irrigation & Crop Farming", cows: "Planned" },
-                    { year: "2031", note: "Full Sustainability Target", cows: "Vision", special: true }
-                  ].map((item, i) => (
-                    <tr key={i} style={{ borderBottom: '1px solid #eee', backgroundColor: item.special ? '#FFF8F1' : 'transparent' }}>
-                      <td style={{ padding: '1.25rem', fontWeight: 600 }}>{item.year}</td>
-                      <td style={{ padding: '1.25rem', textAlign: 'center', color: item.special ? 'var(--primary)' : 'var(--text-muted)' }}>{item.note}</td>
-                      <td style={{ padding: '1.25rem', textAlign: 'right', fontWeight: 800 }}>{item.cows}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
 
-      {/* 8. DONOR SPONSORSHIP */}
-      <section id="donate-projects" className="section bg-white text-center">
-        <div className="container">
-          <div className="reveal">
-            <div style={{ color: 'var(--primary)', fontWeight: 700, marginBottom: '0.5rem' }}>SUPPORT OUR GROWTH</div>
-            <h2 className="section-title">Sponsorship Opportunities</h2>
-            <p className="section-subtitle">Your support fuels these sustainable projects, providing both nutrition and economic resilience for our children.</p>
-          </div>
-          
-          <div className="grid-3 mb-6">
-            {[
-              { title: "Poultry Starter", price: "$150", desc: "Supports chicken feed and medical care for the flock.", delay: 'delay-100' },
-              { title: "Livestock Care", price: "$350", desc: "Covers monthly feed and vet care for our cattle herd.", delay: 'delay-200' },
-              { title: "Major Asset", price: "$500+", desc: "Buy a new pregnant cow to multiply our impact.", popular: true, delay: 'delay-300' }
-            ].map((opt, i) => (
-              <div key={i} className={`card hover-lift reveal ${opt.delay} ${opt.popular ? 'border-primary' : ''}`} style={{ 
-                padding: '3rem 2rem', 
-                position: 'relative',
-                border: opt.popular ? '2px solid var(--primary)' : '1px solid #f0f0f0',
-                backgroundColor: opt.popular ? '#fcf9f7' : 'white'
-              }}>
-                {opt.popular && <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'var(--primary)', color: 'white', padding: '0.4rem 1.25rem', borderRadius: '30px', fontSize: '0.75rem', fontWeight: 800 }}>MOST IMPACTFUL</div>}
-                <h3 className="mb-2">{opt.title}</h3>
-                <div style={{ fontSize: '3rem', fontWeight: 900, color: 'var(--text-main)', marginBottom: '1.5rem' }}>{opt.price}</div>
-                <p className="mb-4" style={{ color: 'var(--text-muted)' }}>{opt.desc}</p>
-                <div className="text-left mb-6" style={{ listStyle: 'none', padding: 0 }}>
-                  <div className="mb-2" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle size={14} color="var(--primary)"/> Official Project Certificate</div>
-                  <div className="mb-2" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle size={14} color="var(--primary)"/> Monthly Impact Reports</div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle size={14} color="var(--primary)"/> Personal Photos of our progress</div>
-                </div>
-                <Link to="/donate" className={`btn ${opt.popular ? 'btn-primary' : 'btn-secondary'}`} style={{ width: '100%' }}>Sponsor Project</Link>
-              </div>
-            ))}
-          </div>
-
-          <div className="card reveal" style={{ maxWidth: '700px', margin: '0 auto', padding: '2.5rem', border: 'none', backgroundColor: '#fcf8f6' }}>
-            <h3 style={{ marginBottom: '1rem' }}>Partial Sponsorship & General Aid</h3>
-            <p className="mb-4">Donate any amount to support infrastructure, feed, and veterinary services across all projects.</p>
-            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
-               <Link to="/donate" className="btn btn-secondary">Support General Growth</Link>
-               <Link to="/donate" className="btn btn-primary">Make a Donation</Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 9. TRANSPARENCY & FOUNDER */}
-      <section className="section section--warm">
-         <div className="container">
-            <div className="grid-2" style={{ alignItems: 'center', gap: '5rem' }}>
-                <div className="reveal" style={{ position: 'relative' }}>
-                   <div className="img-zoom-container" style={{ borderRadius: '25px' }}>
-                      <img src={founderChild} alt="Founder with Children" className="img-zoom" style={{ width: '100%', borderRadius: '25px', boxShadow: 'var(--shadow-xl)' }} onError={(e) => handleImageError(e, 'Founder')} />
-                   </div>
-                </div>
-                <div className="reveal delay-200">
-                   <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '1.5rem' }}>Building the Vision</h2>
-                   <p className="mb-4" style={{ fontSize: '1.15rem', color: 'var(--text-main)', lineHeight: 1.8 }}>
-                      Faraja Maliaki founded FSFNCOO to bring hope, care, and opportunity to vulnerable children. His commitment to sustainability led to these development projects.
-                   </p>
-                   <p className="mb-6" style={{ fontSize: '1.15rem', color: 'var(--text-muted)', lineHeight: 1.8 }}>
-                      What started with one donated cow is now becoming a multi-faceted development hub. From poultry to cattle, each project is a step toward a self-reliant future for our children.
-                   </p>
-                   <div style={{ padding: '2.5rem', backgroundColor: 'white', borderRadius: '20px', borderLeft: '8px solid var(--primary)', position: 'relative' }}>
-                       <Quote size={40} style={{ position: 'absolute', top: '-15px', left: '20px', color: 'var(--primary)', opacity: 0.2 }} />
-                       <p style={{ fontStyle: 'italic', fontSize: '1.25rem', color: 'var(--text-main)', lineHeight: 1.6, marginBottom: '1rem' }}>
-                        “Our development projects are the engine of our orphanage. They ensure our children eat well, grow strong, and thrive without being solely dependent on aid.”
-                       </p>
-                       <p style={{ fontWeight: 800, color: 'var(--primary)', textTransform: 'uppercase', letterSpacing: '1px' }}>— Faraja Maliaki, Founder</p>
-                   </div>
-                </div>
-            </div>
-         </div>
-      </section>
-
-      {/* 10. FINAL CALL TO ACTION */}
+      {/* 6. CALL TO ACTION */}
       <section className="section bg-white text-center">
          <div className="container reveal" style={{ maxWidth: '800px' }}>
-            <h2 style={{ fontSize: '3rem', fontWeight: 900, marginBottom: '1rem' }}>Support Development</h2>
-            <p className="section-subtitle">Join us in our mission to build a self-sustaining home for vulnerable children in Arusha.</p>
-            <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', marginTop: '2.5rem' }}>
-               <Link to="/donate" className="btn btn-primary" style={{ padding: '1.25rem 3rem', fontSize: '1.25rem' }}>Support a Project</Link>
-               <Link to="/contact" className="btn btn-secondary" style={{ padding: '1.25rem 3rem', fontSize: '1.25rem' }}>Contact Us</Link>
+            <h2 style={{ fontSize: '3rem', fontWeight: 900, marginBottom: '1.5rem' }}>Support Sustainable Growth</h2>
+            <p className="section-subtitle">Your donation directly funds these projects, helping us build a self-reliant future for Arusha's children.</p>
+            <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', marginTop: '2.5rem', flexWrap: 'wrap' }}>
+               <Link to="/donate" className="btn btn-primary" style={{ padding: '1.25rem 3.5rem', fontSize: '1.2rem' }}><Heart size={20} fill="white" style={{ marginRight: '0.5rem' }} /> Support a Project</Link>
+               <Link to="/contact" className="btn btn-secondary" style={{ padding: '1.25rem 3.5rem', fontSize: '1.2rem' }}>Become a Partner</Link>
             </div>
          </div>
       </section>
@@ -407,7 +371,7 @@ const DevelopmentProjects = () => {
         .development-projects-page h2.section-title {
            font-size: 2.75rem;
            font-weight: 900;
-           margin-bottom: 2.5rem;
+           margin-bottom: 2rem;
            color: var(--text-main);
         }
         .development-projects-page .section-subtitle {
@@ -418,7 +382,7 @@ const DevelopmentProjects = () => {
            font-size: 1.25rem;
         }
         @media (max-width: 991px) {
-           .grid-2, .grid-3, .grid-4 {
+           .grid-2, .grid-3 {
               grid-template-columns: 1fr !important;
            }
         }
