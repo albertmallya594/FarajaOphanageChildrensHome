@@ -16,6 +16,7 @@ import {
   Quote,
   Activity,
   BookOpen,
+  FileText,
   Plus,
   Sprout,
   X
