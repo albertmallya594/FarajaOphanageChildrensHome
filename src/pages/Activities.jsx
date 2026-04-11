@@ -1,26 +1,20 @@
 import React, { useState } from 'react';
 import { BookOpen, HeartPulse, Users, X } from 'lucide-react';
 import communityImg from '../assets/community_support.png';
-import childrenImg from '../assets/hero_children_smiling.jpg';
-import dcpImg from '../assets/activities/desk-for-children-project.jpg';
-import cwcImg from '../assets/activities/clean-water-for-children.jpg';
-import rrpImg from '../assets/activities/roof-for-rookies-project.jpg';
-import dailyLife1 from '../assets/activities/daily-life-1.jpg';
-import dailyLife2 from '../assets/activities/daily-life-2.jpg';
-import dailyLife3 from '../assets/activities/daily-life-3.jpg';
-import dailyLife4 from '../assets/activities/daily-life-4.jpg';
-import dailyLife5 from '../assets/activities/daily-life-5.jpg';
+import childrenImg from '../assets/hero_children_smiling.png';
 
 const Activities = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
-  // Daily Life Gallery - Photos from Daily Life Gallery folder
+  // We are using temporary placeholders here until you add the images.
+  // The website crashed because it was trying to load files that don't exist yet!
   const galleryImages = [
-    dailyLife1,
-    dailyLife2,
-    dailyLife3,
-    dailyLife4,
-    dailyLife5
+    'https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1579208575657-c59520a4b7ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    childrenImg,
+    'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1542810634-71277d95dcbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    communityImg
   ];
 
   return (
@@ -49,7 +43,7 @@ const Activities = () => {
           <div className="grid-3">
              <div className="hover-lift" style={{ border: '1px solid #e5e5e5', borderRadius: 'var(--radius-lg)', overflow: 'hidden', backgroundColor: 'white' }}>
                <div style={{ height: '200px', backgroundColor: '#f5f5f4' }}>
-                 <img src={dcpImg} alt="Desk for Children Project" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                 <img src={childrenImg} alt="Desk for Children Project" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                </div>
                <div style={{ padding: '2rem' }}>
                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
@@ -62,7 +56,7 @@ const Activities = () => {
 
              <div className="hover-lift" style={{ border: '1px solid #e5e5e5', borderRadius: 'var(--radius-lg)', overflow: 'hidden', backgroundColor: 'white' }}>
                <div style={{ height: '200px', backgroundColor: '#f5f5f4' }}>
-                 <img src={cwcImg} alt="Clean Water for Children" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                 <img src="https://images.unsplash.com/photo-1576086208153-62aeb288aaeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Clean Water for Children" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                </div>
                <div style={{ padding: '2rem' }}>
                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
@@ -75,7 +69,7 @@ const Activities = () => {
 
              <div className="hover-lift" style={{ border: '1px solid #e5e5e5', borderRadius: 'var(--radius-lg)', overflow: 'hidden', backgroundColor: 'white' }}>
                <div style={{ height: '200px', backgroundColor: '#f5f5f4' }}>
-                 <img src={rrpImg} alt="Roof for Rookies Project" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                 <img src={communityImg} alt="Roof for Rookies Project" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                </div>
                <div style={{ padding: '2rem' }}>
                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>

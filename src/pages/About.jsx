@@ -1,11 +1,11 @@
 import { Heart, ShieldCheck, Zap, MapPin, PieChart, Users } from 'lucide-react';
 import React from 'react';
 import heroImg from '../assets/community_support.png';
-import farajaMaliakiImg from '../assets/team/faraja-maliaki-founder-director.jpg';
-import ayubuKeremaImg from '../assets/team/ayubu-loilagwaki-kerema-co-director.jpg';
-import remmidiusBonajoseImg from '../assets/team/remmidius-bonajose-social-worker.jpg';
-import graceErnestMakuaImg from '../assets/team/grace-ernest-makua-head-matron.jpg';
-import moiranaSamuelImg from '../assets/team/moirana-samuel-website-administrator.jpg';
+import farajaMaliakiImg from '../assets/faraja-maliaki-founder-director.jpg';
+import ayubuKeremaImg from '../assets/ayubu-kerema-co-director.jpg';
+import remmidiusBonajoseImg from '../assets/remmidius-bonajose-social-worker.jpg';
+import graceErnestMakuaImg from '../assets/grace-ernest-makua-matron.jpg';
+import moiranaSamuelImg from '../assets/moirana-samuel-website-admin.jpg';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 // ─── SVG Avatar Placeholder ───────────────────────────────────────────────────
@@ -128,16 +128,16 @@ const LeadershipSection = () => {
 
   const team = [
     {
-      name: 'Faraja Maliaki',
+      name: 'Dr. Faraja Maliaki',
       role: 'Founder & Director',
       image: farajaMaliakiImg,
       svgBg: '#E45D25',
-      desc: 'The visionary behind Faraja Orphanage Children\'s Home, Faraja Maliaki established the organization with the mission of providing comfort, protection, and opportunities to children in need. His leadership continues to guide the organization\'s growth and impact.',
+      desc: 'The visionary behind Faraja Orphanage Children\'s Home, Dr. Faraja Maliaki established the organization with the mission of providing comfort, protection, and opportunities to children in need. His leadership continues to guide the organization\'s growth and impact.',
       isFeatured: true,
     },
     {
       name: 'Ayubu Loilagwaki Kerema',
-      role: 'Co-Director',
+      role: 'Co-Director & Coordinator',
       image: ayubuKeremaImg,
       svgBg: '#2A81C4',
       desc: 'Oversees daily operations and coordinates all programs and activities within the organization, ensuring everything runs efficiently and effectively.',
@@ -337,18 +337,6 @@ const About = () => {
             <p className="mb-4" style={{ fontSize: '1.125rem', color: 'var(--text-muted)' }}>
               While our core orphanage facility is nestled safely in Arusha, Tanzania, our community impact and outreach programs stretch much further. We believe that true, lasting change must happen simultaneously in the surrounding villages and districts.
             </p>
-            <p style={{ marginBottom: '2rem' }}>
-              <a href="https://share.google/RNgHbUlxCkIs4Csxq" target="_blank" rel="noopener noreferrer" style={{ 
-                color: 'var(--primary)', 
-                textDecoration: 'underline', 
-                fontWeight: 500,
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.5rem'
-              }}>
-                View Project Documents
-              </a>
-            </p>
             <ul style={{ listStyle: 'none', padding: 0, margin: '2rem 0', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {['Arusha City Center (Primary Orphanage & Safe House)', 'Meru District (Local Schools & Desk Projects)', 'Monduli District (Clean Water Initiatives)', 'Karatu (Vulnerable Family Support)'].map((location, idx) => (
                 <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '1rem', fontSize: '1.125rem', fontWeight: 500, color: 'var(--text-main)' }}>
@@ -360,44 +348,8 @@ const About = () => {
               ))}
             </ul>
           </div>
-          <div className="image-wrapper" style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-md)', height: '100%', minHeight: '300px', position: 'relative' }}>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15933.36569281455!2d-3.3955256999999998!3d36.7585194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x183712421d602643:0x8cc2c7bc3eb03c6!2sFARAJA+ORPHANAGE+CHILDREN%27S+HOME!5e0!3m2!1sen!2stz!4v1234567890"
-              width="100%"
-              height="100%"
-              style={{ border: 0, borderRadius: 'var(--radius-lg)' }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Faraja Orphanage Children's Home Location"
-            />
-            <div style={{
-              position: 'absolute',
-              bottom: '1rem',
-              right: '1rem',
-              backgroundColor: 'white',
-              padding: '0.5rem 1rem',
-              borderRadius: 'var(--radius-full)',
-              boxShadow: 'var(--shadow-md)',
-              fontSize: '0.875rem',
-              fontWeight: 500
-            }}>
-              <a 
-                href="https://google.com/maps/dir//FARAJA+ORPHANAGE+CHILDREN'S+HOME,+TZ,+Shangarai+23100/@-6.1163215,34.8616849,10z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x183712421d602643:0x8cc2c7bc3eb03c6!2m2!1d36.7585194!2d-3.3777305?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ 
-                  color: 'var(--primary)', 
-                  textDecoration: 'none',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem'
-                }}
-              >
-                <MapPin size={16} />
-                Get Directions
-              </a>
-            </div>
+          <div className="image-wrapper" style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-md)', height: '100%', minHeight: '300px', backgroundColor: '#e5e7eb', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <p style={{ color: 'var(--text-muted)' }}>[Interactive Regional Map Placeholder]</p>
           </div>
         </div>
       </section>

@@ -26,14 +26,6 @@ import { Link } from 'react-router-dom';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { jsPDF } from 'jspdf';
 
-// Student photos
-import aminaImg from '../assets/sponsorship/amina.jpg';
-import barakaImg from '../assets/sponsorship/baraka.jpg';
-import neemaImg from '../assets/sponsorship/neema.jpg';
-import joshuaImg from '../assets/sponsorship/joshua.jpg';
-import happyImg from '../assets/sponsorship/happy.jpg';
-import eliasImg from '../assets/sponsorship/elias.jpg';
-
 const Sponsorship = () => {
   const revealRef = useScrollReveal();
 
@@ -529,12 +521,12 @@ const Sponsorship = () => {
   };
 
   const students = [
-    { name: "Amina", age: 8, status: "Needs Sponsorship", image: aminaImg },
-    { name: "Baraka", age: 10, status: "Sponsored", image: barakaImg },
-    { name: "Neema", age: 7, status: "Needs Sponsorship", image: neemaImg },
-    { name: "Joshua", age: 9, status: "Needs Sponsorship", image: joshuaImg },
-    { name: "Happy", age: 11, status: "Sponsored", image: happyImg },
-    { name: "Elias", age: 8, status: "Needs Sponsorship", image: eliasImg }
+    { name: "Amina", age: 8, status: "Needs Sponsorship", image: "https://images.unsplash.com/photo-1511949863663-92c5c0d3239a?auto=format&fit=crop&w=400&q=80" },
+    { name: "Baraka", age: 10, status: "Sponsored", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80" },
+    { name: "Neema", age: 7, status: "Needs Sponsorship", image: "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?auto=format&fit=crop&w=400&q=80" },
+    { name: "Joshua", age: 9, status: "Needs Sponsorship", image: "https://images.unsplash.com/photo-1540324155974-7523202daa3f?auto=format&fit=crop&w=400&q=80" },
+    { name: "Happy", age: 11, status: "Sponsored", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80" },
+    { name: "Elias", age: 8, status: "Needs Sponsorship", image: "https://images.unsplash.com/photo-1519238263530-99bdd1102f00?auto=format&fit=crop&w=400&q=80" }
   ];
 
   return (

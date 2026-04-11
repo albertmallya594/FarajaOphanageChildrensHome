@@ -23,20 +23,12 @@ import {
 } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
-// Projects in Action images
-import projectAction1 from '../assets/projects-action/project-action-1.jpg';
-import projectAction2 from '../assets/projects-action/project-action-2.jpg';
-import projectAction3 from '../assets/projects-action/project-action-3.jpg';
-import projectAction4 from '../assets/projects-action/project-action-4.jpg';
-import projectAction5 from '../assets/projects-action/project-action-5.jpg';
-import projectAction6 from '../assets/projects-action/project-action-6.jpg';
-
-// Legacy image variables for existing projects
-const cowShelter = projectAction1;
-const cowGrazing = projectAction2;
-const cowSingle = projectAction3;
-const cowHerd = projectAction4;
-const founderChild = projectAction5;
+// Image paths
+const cowShelter = "/FarajaOphanageChildrensHome/src/assets/cow_shelter.jpg";
+const cowGrazing = "/FarajaOphanageChildrensHome/src/assets/cow_grazing.jpg";
+const cowSingle = "/FarajaOphanageChildrensHome/src/assets/cow_single.jpg";
+const cowHerd = "/FarajaOphanageChildrensHome/src/assets/cow_herd.jpg";
+const founderChild = "/FarajaOphanageChildrensHome/src/assets/founder_child.jpg";
 
 const placeholderImage = (text) => `https://placehold.co/800x600/e45d25/ffffff?text=${text}`;
 
@@ -486,12 +478,12 @@ const DevelopmentProjects = () => {
           
           <div className="grid-3" style={{ gap: '1.5rem' }}>
             {[
-              { src: projectAction1, alt: "Project Action 1", label: "Community Work", delay: 'delay-100' },
-              { src: projectAction2, alt: "Project Action 2", label: "Development", delay: 'delay-200' },
-              { src: projectAction3, alt: "Project Action 3", label: "Infrastructure", delay: 'delay-300' },
-              { src: projectAction4, alt: "Project Action 4", label: "Progress", delay: 'delay-400' },
-              { src: projectAction5, alt: "Project Action 5", label: "Achievement", delay: 'delay-500' },
-              { src: projectAction6, alt: "Project Action 6", label: "Impact", delay: 'delay-600' }
+              { src: cowGrazing, alt: "Cows Grazing", label: "Livestock", delay: 'delay-100' },
+              { src: cowShelter, alt: "Animal Shelter", label: "Infrastructure", delay: 'delay-200' },
+              { src: cowSingle, alt: "Dairy Cow", label: "Dairy", delay: 'delay-300' },
+              { src: "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=400&q=80", alt: "Poultry Farming", label: "Chickens", delay: 'delay-400' },
+              { src: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=400&q=80", alt: "Green Farm", label: "Agriculture", delay: 'delay-500' },
+              { src: founderChild, alt: "Children Learning", label: "Education", delay: 'delay-600' }
             ].map((img, i) => (
               <div key={i} className={`hover-lift reveal ${img.delay}`} style={{ 
                 height: '300px', 

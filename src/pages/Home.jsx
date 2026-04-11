@@ -4,12 +4,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 // Images
-import heroImg from '../assets/hero_children_smiling.jpg';
+import heroImg from '../assets/hero_children_smiling.png';
 import communityImg from '../assets/community_support.png';
 import child1 from '../assets/child_portrait_1.png';
-import ourMissionImg from '../assets/home/our-mission.jpg';
-import whatWeDoImg from '../assets/home/what-we-do.jpg';
-import whereWeServeImg from '../assets/home/where-we-serve.jpg';
 
 const StatCounter = ({ end, label, suffix = '' }) => {
   const [count, setCount] = useState(0);
@@ -143,9 +140,9 @@ const Home = () => {
           
           <div className="grid-3" style={{ gap: '1rem' }}>
             {[
-              { title: 'Our mission', link: '/about', img: ourMissionImg, delay: 'delay-100' },
-              { title: 'What we do', link: '/activities', img: whatWeDoImg, delay: 'delay-200' },
-              { title: 'Where we serve', link: '/about', img: whereWeServeImg, delay: 'delay-300' }
+              { title: 'Our mission', link: '/about', img: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', delay: 'delay-100' },
+              { title: 'What we do', link: '/activities', img: 'https://images.unsplash.com/photo-1579208575657-c59520a4b7ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', delay: 'delay-200' },
+              { title: 'Where we serve', link: '/about', img: 'https://images.unsplash.com/photo-1542810634-71277d95dcbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', delay: 'delay-300' }
             ].map((pillar, idx) => (
               <Link key={idx} to={pillar.link} className={`hover-lift reveal ${pillar.delay}`} style={{ 
                 position: 'relative', 

@@ -138,24 +138,11 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Google Maps */}
+      {/* Map Placeholder */}
       <section style={{ height: '400px', backgroundColor: '#e5e7eb', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <a 
-          href="https://www.google.com/maps?newwindow=1&sca_esv=d0a1e93f4488cb4c&sxsrf=ANbL-n7qqVgNz3ptDZI_77f8EqkfdZ_PpQ:1775904017600&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpaEWjvZ2Py1XXV8d8KvlI3jljrY5CkLlk8Dq3IvwBz-R5R-93bnJN-gfJetFY0A5MB-rerWVUzYIWeP5MmTxfBURsID9Ypb5UUoCkcK3WmfB3LrjVZ5p8ot95XhaAAFET6nvtuXpx6_s5MHwYZl6DsToGhZRrW5Fo2CuFz0FqphrjFykNVEQ0fR6L9l44ztdsNcrgfA&biw=1280&bih=903&dpr=1&um=1&ie=UTF-8&fb=1&gl=tz&sa=X&geocode=KUMmYB1CEjcYMcYD68N7LMwI&daddr=TZ,+Shangarai+23100"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ 
-            color: 'var(--primary)', 
-            fontSize: '1.25rem', 
-            display: 'flex', 
-            alignItems: 'center', 
-            gap: '0.5rem',
-            textDecoration: 'none',
-            fontWeight: 500
-          }}
-        >
-          <MapPin size={24} /> View Location on Google Maps
-        </a>
+        <p style={{ color: 'var(--text-muted)', fontSize: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <MapPin size={24} /> Interactive Map Placeholder for Arusha, Tanzania
+        </p>
       </section>
     </div>
   );
