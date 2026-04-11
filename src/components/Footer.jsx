@@ -91,6 +91,9 @@ const Footer = () => {
               <Link to="/volunteers" className="footer-link">Volunteer With Us</Link>
               <Link to="/donate" className="footer-link">Make a Donation</Link>
               <Link to="/contact" className="footer-link">Contact Us</Link>
+              <a href="https://share.google/RNgHbUlxCkIs4Csxq" target="_blank" rel="noopener noreferrer" className="footer-link" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span>View Project Documents</span>
+              </a>
             </div>
 
             <div>
@@ -107,6 +110,45 @@ const Footer = () => {
                 <Mail size={20} color="var(--primary)" />
                 <span>info@farajaorphanage.org</span>
               </div>
+            </div>
+
+            <div>
+              <h4 style={{ marginBottom: '1.5rem', color: 'white', fontSize: '1.25rem' }}>Find Us</h4>
+              <div style={{ 
+                borderRadius: 'var(--radius-md)', 
+                overflow: 'hidden', 
+                boxShadow: 'var(--shadow-md)', 
+                height: '150px', 
+                position: 'relative',
+                marginBottom: '1rem'
+              }}>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15933.36569281455!2d-3.3955256999999998!3d36.7585194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x183712421d602643:0x8cc2c7bc3eb03c6!2sFARAJA+ORPHANAGE+CHILDREN%27S+HOME!5e0!3m2!1sen!2stz!4v1234567890"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Faraja Orphanage Children's Home Location"
+                />
+              </div>
+              <a 
+                href="https://google.com/maps/dir//FARAJA+ORPHANAGE+CHILDREN'S+HOME,+TZ,+Shangarai+23100/@-6.1163215,34.8616849,10z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x183712421d602643:0x8cc2c7bc3eb03c6!2m2!1d36.7585194!2d-3.3777305?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ 
+                  color: 'white', 
+                  textDecoration: 'underline',
+                  fontSize: '0.875rem',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem'
+                }}
+              >
+                <MapPin size={14} />
+                Get Directions
+              </a>
             </div>
           </div>
           
