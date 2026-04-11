@@ -10,6 +10,9 @@ import child1 from '../assets/child_portrait_1.png';
 import ourMissionImg from '../assets/home/our-mission.jpg';
 import whatWeDoImg from '../assets/home/what-we-do.jpg';
 import whereWeServeImg from '../assets/home/where-we-serve.jpg';
+import aminaProfile from '../assets/sponsorship/amina.jpg';
+import barakaProfile from '../assets/sponsorship/baraka.jpg';
+import neemaProfile from '../assets/sponsorship/neema.jpg';
 
 const StatCounter = ({ end, label, suffix = '' }) => {
   const [count, setCount] = useState(0);
@@ -58,6 +61,38 @@ const StatCounter = ({ end, label, suffix = '' }) => {
 
 const Home = () => {
   const revealRef = useScrollReveal();
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+
+  const testimonials = [
+    {
+      quote:
+        'Faraja Orphanage is more than just a home it is a place where children are truly cared for, supported, and given the opportunity to dream again. The love and dedication shown here create a safe and joyful environment where every child feels valued and hopeful for the future.',
+      name: 'Amina',
+      role: 'Student Beneficiary',
+      photo: aminaProfile,
+    },
+    {
+      quote:
+        'The sponsorship program has opened doors to education, confidence, and hope. We see real progress in every child and stronger families in the community each year.',
+      name: 'Baraka',
+      role: 'Student Beneficiary',
+      photo: barakaProfile,
+    },
+    {
+      quote:
+        'Faraja gives children a safe environment, guidance, and consistent support. With committed caregivers and supporters, children are growing with purpose and dignity.',
+      name: 'Neema',
+      role: 'Student Beneficiary',
+      photo: neemaProfile,
+    },
+  ];
+
+  useEffect(() => {
+    const sliderTimer = setInterval(() => {
+      setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(sliderTimer);
+  }, [testimonials.length]);
 
   return (
     <div className="page-home animate-fade-in" ref={revealRef}>
@@ -357,17 +392,33 @@ const Home = () => {
             <div style={{ position: 'absolute', top: '-40px', left: '-20px', opacity: 0.1 }}>
               <svg width="100" height="100" viewBox="0 0 24 24" fill="var(--primary)"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
             </div>
-            <p style={{ fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', fontStyle: 'italic', lineHeight: 1.6, color: 'var(--text-main)', marginBottom: '2rem', position: 'relative', zIndex: 1 }}>
-              "Faraja Orphanage is more than just a home—it is a place where children are truly cared for, supported, and given the opportunity to dream again. The love and dedication shown here create a safe and joyful environment where every child feels valued and hopeful for the future."
+            <p key={activeTestimonial} className="animate-fade-in" style={{ fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', fontStyle: 'italic', lineHeight: 1.6, color: 'var(--text-main)', marginBottom: '2rem', position: 'relative', zIndex: 1 }}>
+              "{testimonials[activeTestimonial].quote}"
             </p>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
               <div style={{ width: '50px', height: '50px', borderRadius: '50%', backgroundColor: '#e5e7eb', overflow: 'hidden' }}>
-                 <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Volunteer supporting children" loading="lazy" decoding="async" />
+                 <img src={testimonials[activeTestimonial].photo} alt={`${testimonials[activeTestimonial].name} profile`} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div style={{ textAlign: 'left' }}>
-                <div style={{ fontWeight: 700, fontSize: '1.125rem' }}>Sarah Jenkins</div>
-                <div style={{ color: 'var(--text-muted)' }}>Long-term Volunteer</div>
+                <div style={{ fontWeight: 700, fontSize: '1.125rem' }}>{testimonials[activeTestimonial].name}</div>
+                <div style={{ color: 'var(--text-muted)' }}>{testimonials[activeTestimonial].role}</div>
               </div>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem', marginTop: '1rem' }}>
+              {testimonials.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveTestimonial(idx)}
+                  aria-label={`Show testimonial ${idx + 1}`}
+                  style={{
+                    width: idx === activeTestimonial ? '24px' : '10px',
+                    height: '10px',
+                    borderRadius: '9999px',
+                    backgroundColor: idx === activeTestimonial ? 'var(--primary)' : '#d6d3d1',
+                    transition: 'all 0.3s ease'
+                  }}
+                />
+              ))}
             </div>
           </div>
         </div>
