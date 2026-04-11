@@ -1,8 +1,11 @@
 import { Heart, ShieldCheck, Zap, MapPin, PieChart, Users } from 'lucide-react';
 import React from 'react';
 import heroImg from '../assets/community_support.png';
-import founderImg from '../assets/team_founder.png';
-import coordinatorImg from '../assets/team_coordinator.png';
+import farajaMaliakiImg from '../assets/faraja-maliaki-founder-director.jpg';
+import ayubuKeremaImg from '../assets/ayubu-kerema-co-director.jpg';
+import remmidiusBonajoseImg from '../assets/remmidius-bonajose-social-worker.jpg';
+import graceErnestMakuaImg from '../assets/grace-ernest-makua-matron.jpg';
+import moiranaSamuelImg from '../assets/moirana-samuel-website-admin.jpg';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 // ─── SVG Avatar Placeholder ───────────────────────────────────────────────────
@@ -20,16 +23,16 @@ const SvgAvatar = ({ initials, bgColor = '#E45D25', size = 220 }) => (
 
 // ─── Role badge config ─────────────────────────────────────────────────────────
 const ROLE_STYLES = {
-  'Founder':               { bg: '#FFF3EC', color: '#C54C1C', border: '#FDBA8C' },
-  'Coordinator':           { bg: '#EFF6FF', color: '#1E6699', border: '#93C5FD' },
-  'Social Worker':         { bg: '#F0FDF4', color: '#264E2A', border: '#86EFAC' },
-  'Head Matron':           { bg: '#FFF1F2', color: '#BE123C', border: '#FDA4AF' },
-  'Website Administrator': { bg: '#F8FAFC', color: '#334155', border: '#CBD5E1' },
+  'Founder & Director':           { bg: '#FFF3EC', color: '#C54C1C', border: '#FDBA8C' },
+  'Co-Director & Coordinator':    { bg: '#EFF6FF', color: '#1E6699', border: '#93C5FD' },
+  'Social Worker':                { bg: '#F0FDF4', color: '#264E2A', border: '#86EFAC' },
+  'Head Matron':                  { bg: '#FFF1F2', color: '#BE123C', border: '#FDA4AF' },
+  'Website Administrator':        { bg: '#F8FAFC', color: '#334155', border: '#CBD5E1' },
 };
 
 // ─── Single Team Card ──────────────────────────────────────────────────────────
 const TeamCard = ({ name, role, desc, image, svgBg, initials, delay, isFeatured = false }) => {
-  const roleStyle = ROLE_STYLES[role] || ROLE_STYLES['Coordinator'];
+  const roleStyle = ROLE_STYLES[role] || ROLE_STYLES['Social Worker'];
   const getInitials = (n) => n.split(' ').slice(0, 2).map(w => w[0]).join('');
 
   return (
@@ -126,34 +129,37 @@ const LeadershipSection = () => {
   const team = [
     {
       name: 'Dr. Faraja Maliaki',
-      role: 'Founder',
-      image: founderImg,
+      role: 'Founder & Director',
+      image: farajaMaliakiImg,
       svgBg: '#E45D25',
       desc: 'The visionary behind Faraja Orphanage Children\'s Home, Dr. Faraja Maliaki established the organization with the mission of providing comfort, protection, and opportunities to children in need. His leadership continues to guide the organization\'s growth and impact.',
       isFeatured: true,
     },
     {
       name: 'Ayubu Loilagwaki Kerema',
-      role: 'Coordinator',
-      image: coordinatorImg,
+      role: 'Co-Director & Coordinator',
+      image: ayubuKeremaImg,
       svgBg: '#2A81C4',
       desc: 'Oversees daily operations and coordinates all programs and activities within the organization, ensuring everything runs efficiently and effectively.',
     },
     {
       name: 'Remmidius Bonajose',
       role: 'Social Worker',
+      image: remmidiusBonajoseImg,
       svgBg: '#316436',
       desc: 'Provides emotional, social, and community support to children, working closely with families and ensuring the wellbeing of every child under care.',
     },
     {
-      name: 'Grac Ernest Makua',
+      name: 'Grace Ernest Makua',
       role: 'Head Matron',
+      image: graceErnestMakuaImg,
       svgBg: '#BE123C',
       desc: 'Responsible for the daily care and supervision of children within the home, ensuring their health, safety, and overall wellbeing.',
     },
     {
       name: 'Moirana Samuel',
       role: 'Website Administrator',
+      image: moiranaSamuelImg,
       svgBg: '#334155',
       desc: 'Manages and maintains the organization\'s website, ensuring it remains updated, secure, and functional while supporting digital communication and outreach.',
     },
