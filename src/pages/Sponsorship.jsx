@@ -33,6 +33,7 @@ import neemaImg from '../assets/sponsorship/neema.jpg';
 import joshuaImg from '../assets/sponsorship/joshua.jpg';
 import happyImg from '../assets/sponsorship/happy.jpg';
 import eliasImg from '../assets/sponsorship/elias.jpg';
+import partnerSchoolBusImg from '../assets/sponsorship/east-african-primary-school-bus.png';
 
 const Sponsorship = () => {
   const revealRef = useScrollReveal();
@@ -685,11 +686,11 @@ const Sponsorship = () => {
               </div>
             </div>
             <div style={{ order: 1 }}>
-               <img src="https://images.unsplash.com/photo-1546410531-ec3f8016f4ad?auto=format&fit=crop&w=800&q=80" alt="East African Primary School partner campus" loading="lazy" decoding="async" style={{ width: '100%', borderRadius: '25px', boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }} />
-            </div>
-          </div>
-        </div>
-      </section>
+               <img src={partnerSchoolBusImg} alt="East African Pre & Primary School children with school bus" loading="lazy" decoding="async" style={{ width: '100%', borderRadius: '25px', boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }} />
+             </div>
+           </div>
+         </div>
+       </section>
 
       {/* 6. ADMISSION & JOINING INSTRUCTIONS BOOKLET */}
       <section className="section section--warm">
