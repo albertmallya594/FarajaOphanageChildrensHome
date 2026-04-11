@@ -41,6 +41,9 @@ const Navbar = () => {
             <img 
               src={logoImg} 
               alt="Faraja Logo" 
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
               style={{ 
                 height: scrolled ? '50px' : '65px', 
                 width: 'auto',

@@ -77,6 +77,8 @@ const TeamCard = ({ name, role, desc, image, svgBg, initials, delay, isFeatured 
           <img
             src={image}
             alt={name}
+            loading="lazy"
+            decoding="async"
             style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }}
           />
         ) : (
@@ -265,7 +267,7 @@ const About = () => {
             </p>
           </div>
           <div className="image-wrapper" style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)' }}>
-            <img src={heroImg} alt="Our Story at Faraja" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <img src={heroImg} alt="Our Story at Faraja Orphanage Children's Home" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
         </div>
       </section>

@@ -590,7 +590,7 @@ const Sponsorship = () => {
             </div>
             <div style={{ position: 'relative' }}>
               <div className="img-zoom-container" style={{ borderRadius: '25px', boxShadow: 'var(--shadow-lg)' }}>
-                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80" alt="Education" className="img-zoom" style={{ width: '100%' }} />
+                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80" alt="Education support for sponsored children" loading="lazy" decoding="async" className="img-zoom" style={{ width: '100%' }} />
               </div>
               <div style={{ position: 'absolute', bottom: '-20px', right: '-20px', backgroundColor: 'var(--accent)', color: 'white', padding: '2rem', borderRadius: '20px', maxWidth: '200px' }}>
                 <h3 style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>100%</h3>
@@ -613,7 +613,7 @@ const Sponsorship = () => {
             {students.map((student, i) => (
               <div key={i} className="card hover-lift" style={{ padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
                 <div className="img-zoom-container" style={{ height: '280px' }}>
-                  <img src={student.image} alt={student.name} className="img-zoom" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img src={student.image} alt={`${student.name} - student in sponsorship program`} loading="lazy" decoding="async" className="img-zoom" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
                 <div style={{ padding: '2rem' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
@@ -685,7 +685,7 @@ const Sponsorship = () => {
               </div>
             </div>
             <div style={{ order: 1 }}>
-               <img src="https://images.unsplash.com/photo-1546410531-ec3f8016f4ad?auto=format&fit=crop&w=800&q=80" alt="East African School" style={{ width: '100%', borderRadius: '25px', boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }} />
+               <img src="https://images.unsplash.com/photo-1546410531-ec3f8016f4ad?auto=format&fit=crop&w=800&q=80" alt="East African Primary School partner campus" loading="lazy" decoding="async" style={{ width: '100%', borderRadius: '25px', boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }} />
             </div>
           </div>
         </div>

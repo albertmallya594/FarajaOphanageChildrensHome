@@ -49,7 +49,7 @@ const Activities = () => {
           <div className="grid-3">
              <div className="hover-lift" style={{ border: '1px solid #e5e5e5', borderRadius: 'var(--radius-lg)', overflow: 'hidden', backgroundColor: 'white' }}>
                <div style={{ height: '200px', backgroundColor: '#f5f5f4' }}>
-                 <img src={dcpImg} alt="Desk for Children Project" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                 <img src={dcpImg} alt="Desk for Children Project classroom support" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                </div>
                <div style={{ padding: '2rem' }}>
                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
@@ -62,7 +62,7 @@ const Activities = () => {
 
              <div className="hover-lift" style={{ border: '1px solid #e5e5e5', borderRadius: 'var(--radius-lg)', overflow: 'hidden', backgroundColor: 'white' }}>
                <div style={{ height: '200px', backgroundColor: '#f5f5f4' }}>
-                 <img src={cwcImg} alt="Clean Water for Children" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                 <img src={cwcImg} alt="Clean Water for Children community well project" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                </div>
                <div style={{ padding: '2rem' }}>
                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
@@ -75,7 +75,7 @@ const Activities = () => {
 
              <div className="hover-lift" style={{ border: '1px solid #e5e5e5', borderRadius: 'var(--radius-lg)', overflow: 'hidden', backgroundColor: 'white' }}>
                <div style={{ height: '200px', backgroundColor: '#f5f5f4' }}>
-                 <img src={rrpImg} alt="Roof for Rookies Project" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                 <img src={rrpImg} alt="Roof for Rookies housing improvement project" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                </div>
                <div style={{ padding: '2rem' }}>
                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
@@ -106,7 +106,7 @@ const Activities = () => {
                 style={{ height: '250px', borderRadius: 'var(--radius-md)', overflow: 'hidden', cursor: 'pointer' }}
                 onClick={() => setSelectedImage(src)}
               >
-                <img src={src} alt={`Gallery ${idx}`} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.3s' }} onMouseOver={e => e.currentTarget.style.transform = 'scale(1.05)'} onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'} />
+                <img src={src} alt={`Daily life gallery image ${idx + 1} at Faraja`} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.3s' }} onMouseOver={e => e.currentTarget.style.transform = 'scale(1.05)'} onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'} />
               </div>
             ))}
           </div>
@@ -160,7 +160,7 @@ const Activities = () => {
           >
             <X size={36} />
           </button>
-          <img src={selectedImage} alt="Enlarged gallery view" style={{ maxWidth: '100%', maxHeight: '90vh', objectFit: 'contain', borderRadius: 'var(--radius-sm)' }} onClick={e => e.stopPropagation()} />
+          <img src={selectedImage} alt="Enlarged daily life gallery view" loading="lazy" decoding="async" style={{ maxWidth: '100%', maxHeight: '90vh', objectFit: 'contain', borderRadius: 'var(--radius-sm)' }} onClick={e => e.stopPropagation()} />
         </div>
       )}
     </div>

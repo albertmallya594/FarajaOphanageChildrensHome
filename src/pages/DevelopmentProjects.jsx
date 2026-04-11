@@ -452,7 +452,7 @@ const DevelopmentProjects = () => {
                 onClick={() => setSelectedProject(project)}
               >
                 <div className="img-zoom-container" style={{ height: '240px', position: 'relative' }}>
-                  <img src={project.image} alt={project.title} className="img-zoom" style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => handleImageError(e, project.title)} />
+                  <img src={project.image} alt={project.title} loading="lazy" decoding="async" className="img-zoom" style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => handleImageError(e, project.title)} />
                   <div style={{ position: 'absolute', top: '1rem', right: '1rem', backgroundColor: project.color, color: 'white', padding: '0.3rem 0.8rem', borderRadius: '20px', fontSize: '0.75rem', fontWeight: 800 }}>
                     {project.tag}
                   </div>
@@ -501,7 +501,7 @@ const DevelopmentProjects = () => {
                 position: 'relative'
               }} onClick={() => setSelectedImage(img)}>
                 <div className="img-zoom-container" style={{ width: '100%', height: '100%' }}>
-                   <img src={img.src} alt={img.alt} className="img-zoom" style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => handleImageError(e, img.label)} />
+                   <img src={img.src} alt={img.alt} loading="lazy" decoding="async" className="img-zoom" style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => handleImageError(e, img.label)} />
                 </div>
                 <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '1.25rem', background: 'linear-gradient(transparent, rgba(0,0,0,0.8))', color: 'white', textAlign: 'left' }}>
                   <span style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--sun)' }}>{img.label}</span>
@@ -524,7 +524,7 @@ const DevelopmentProjects = () => {
               </button>
               
               <div style={{ height: '350px', position: 'relative' }}>
-                 <img src={selectedProject.image} alt={selectedProject.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => handleImageError(e, selectedProject.title)} />
+                 <img src={selectedProject.image} alt={selectedProject.title} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => handleImageError(e, selectedProject.title)} />
                  <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', padding: '3rem 2.5rem', background: 'linear-gradient(transparent, rgba(0,0,0,0.9))', color: 'white' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.5rem' }}>
                        {selectedProject.icon}
@@ -633,7 +633,7 @@ const DevelopmentProjects = () => {
                     <div className="grid-3" style={{ gap: '1rem' }}>
                        {selectedProject.gallery.map((img, i) => (
                           <div key={i} className="img-zoom-container" style={{ height: '180px', borderRadius: '15px' }}>
-                             <img src={img} alt={`Gallery ${i}`} className="img-zoom" style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => handleImageError(e, 'Gallery')} />
+                             <img src={img} alt={`Gallery ${i}`} loading="lazy" decoding="async" className="img-zoom" style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => handleImageError(e, 'Gallery')} />
                           </div>
                        ))}
                     </div>
@@ -672,6 +672,8 @@ const DevelopmentProjects = () => {
             <img 
               src={selectedImage.src} 
               alt={selectedImage.alt} 
+              loading="lazy"
+              decoding="async"
               className="animate-fade-in"
               style={{ width: '100%', borderRadius: '20px', boxShadow: '0 25px 50px rgba(0,0,0,0.5)' }} 
               onError={(e) => handleImageError(e, selectedImage.label)}

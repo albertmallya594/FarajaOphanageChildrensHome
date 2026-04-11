@@ -158,6 +158,8 @@ const Home = () => {
                 <img 
                   src={pillar.img} 
                   alt={pillar.title} 
+                  loading="lazy"
+                  decoding="async"
                   style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease' }} 
                   onMouseOver={e => e.currentTarget.style.transform = 'scale(1.1)'}
                   onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
@@ -182,7 +184,7 @@ const Home = () => {
       <section className="section section--light">
         <div className="container grid-2">
           <div className="image-wrapper hover-lift reveal" style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)' }}>
-            <img src={communityImg} alt="Community Support" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <img src={communityImg} alt="Community Support for children and families in Arusha" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
           <div className="content-wrapper reveal delay-200">
             <h2 className="section-title">Keeping Families Together</h2>
@@ -219,7 +221,7 @@ const Home = () => {
             </Link>
           </div>
           <div className="image-wrapper hover-lift reveal delay-200" style={{ order: 1, borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)', position: 'relative' }}>
-             <img src={child1} alt="Meet Rehema" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+             <img src={child1} alt="Meet Rehema - child supported by Faraja sponsorship" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
              <div style={{ position: 'absolute', bottom: '1rem', left: '1rem', backgroundColor: 'var(--accent)', color: 'black', padding: '0.5rem 1rem', borderRadius: 'var(--radius-full)', fontWeight: 'bold' }}>Read Her Story</div>
           </div>
         </div>
@@ -360,7 +362,7 @@ const Home = () => {
             </p>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
               <div style={{ width: '50px', height: '50px', borderRadius: '50%', backgroundColor: '#e5e7eb', overflow: 'hidden' }}>
-                 <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Volunteer" />
+                 <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Volunteer supporting children" loading="lazy" decoding="async" />
               </div>
               <div style={{ textAlign: 'left' }}>
                 <div style={{ fontWeight: 700, fontSize: '1.125rem' }}>Sarah Jenkins</div>
