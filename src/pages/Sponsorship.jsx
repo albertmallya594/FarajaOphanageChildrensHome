@@ -1,15 +1,15 @@
 import React from 'react';
-import { 
-  Users, 
-  BookOpen, 
-  GraduationCap, 
-  Heart, 
-  CheckCircle, 
-  MapPin, 
-  ShieldCheck, 
-  School, 
-  ClipboardList, 
-  Clock, 
+import {
+  Users,
+  BookOpen,
+  GraduationCap,
+  Heart,
+  CheckCircle,
+  MapPin,
+  ShieldCheck,
+  School,
+  ClipboardList,
+  Clock,
   FileText,
   ArrowRight,
   TrendingUp,
@@ -20,7 +20,9 @@ import {
   Bus,
   CalendarDays,
   ClipboardCheck,
-  ChevronDown
+  ChevronDown,
+  Mail,
+  MessageCircleMore
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useScrollReveal } from '../hooks/useScrollReveal';
@@ -34,6 +36,7 @@ import joshuaImg from '../assets/sponsorship/joshua.jpg';
 import happyImg from '../assets/sponsorship/happy.jpg';
 import eliasImg from '../assets/sponsorship/elias.jpg';
 import partnerSchoolBusImg from '../assets/sponsorship/east-african-primary-school-bus.png';
+import childrenBusImg from '../assets/sponsorship/children-bus.jpg';
 
 const Sponsorship = () => {
   const revealRef = useScrollReveal();
@@ -573,10 +576,10 @@ const Sponsorship = () => {
             <div>
               <h2 className="section-title" style={{ textAlign: 'left' }}>Education: The Key to Freedom</h2>
               <p className="mb-4" style={{ fontSize: '1.15rem' }}>
-                The Faraja Sponsorship Program supports vulnerable children by providing access to quality education, school supplies, and a stable learning environment. 
+                Our children arrive safely and happily to school every day, ready to learn and grow. Through our sponsorship program, we ensure each child has access to quality education, reliable transportation, and the support they need to thrive academically and personally.
               </p>
               <p className="mb-6" style={{ color: 'var(--text-muted)' }}>
-                Through this program, children are enrolled and supported at <strong>EASTAFRICAN PRIMARY SCHOOLS</strong>, ensuring they receive the specialized care, guidance, and academic excellence they need to succeed in Arusha and beyond.
+                Through this program, children are enrolled and supported at <strong>EASTAFRICAN PRIMARY SCHOOLS</strong>, ensuring they receive specialized care, guidance, and academic excellence they need to succeed in Arusha and beyond.
               </p>
               <div className="grid-2" style={{ gap: '1.5rem' }}>
                 <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
@@ -591,7 +594,7 @@ const Sponsorship = () => {
             </div>
             <div style={{ position: 'relative' }}>
               <div className="img-zoom-container" style={{ borderRadius: '25px', boxShadow: 'var(--shadow-lg)' }}>
-                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80" alt="Education support for sponsored children" loading="lazy" decoding="async" className="img-zoom" style={{ width: '100%' }} />
+                <img src={childrenBusImg} alt="Children arriving safely and happily to school with yellow bus" loading="lazy" decoding="async" className="img-zoom" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div style={{ position: 'absolute', bottom: '-20px', right: '-20px', backgroundColor: 'var(--accent)', color: 'white', padding: '2rem', borderRadius: '20px', maxWidth: '200px' }}>
                 <h3 style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>100%</h3>
@@ -639,6 +642,59 @@ const Sponsorship = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT CTA AFTER STUDENTS */}
+      <section className="section bg-white">
+        <div className="container reveal">
+          <div style={{
+            maxWidth: '700px',
+            margin: '0 auto',
+            textAlign: 'center',
+            backgroundColor: '#FFF8F1',
+            padding: '3rem 2rem',
+            borderRadius: 'var(--radius-lg)',
+            border: '2px solid rgba(228, 93, 37, 0.15)',
+            boxShadow: 'var(--shadow-md)'
+          }}>
+            <h3 style={{ fontSize: '1.75rem', marginBottom: '1rem', color: 'var(--text-main)' }}>
+              Prefer to chat directly?
+            </h3>
+            <p style={{ color: 'var(--text-muted)', marginBottom: '2rem', fontSize: '1.05rem' }}>
+              We're here to answer your questions about sponsorship, donations, or volunteering.
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center' }}>
+              <a
+                href="https://wa.me/255763485866"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary hover-lift"
+                style={{
+                  padding: '1rem 2rem',
+                  fontSize: '1.1rem',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.75rem',
+                  minWidth: '280px',
+                  justifyContent: 'center'
+                }}
+              >
+                <MessageCircleMore size={22} />
+                Chat with us on WhatsApp
+              </a>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.95rem', color: 'var(--text-muted)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center' }}>
+                  <MessageCircleMore size={16} color="var(--primary)" />
+                  <span>+255 763 485 866</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center' }}>
+                  <Mail size={16} color="var(--primary)" />
+                  <span>info@farajaorphanage.org</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
