@@ -9,8 +9,12 @@ import dailyLife1 from '../assets/activities/daily-life-1.jpg';
 import dailyLife2 from '../assets/activities/daily-life-2.jpg';
 import dailyLife3 from '../assets/activities/daily-life-3.jpg';
 import dailyLife4 from '../assets/activities/daily-life-4.jpg';
-import dailyLife5 from '../assets/activities/daily-life-5.jpg';
-
+import dailyLife5 from '../assets/activities/daily-life-5.jpeg';
+import dailyLife6 from '../assets/activities/daily-life-6.jpg';
+import dailyLife7 from '../assets/activities/daily-life-7.jpeg';
+import dailyLife8 from '../assets/activities/daily-life-8.jpeg';
+import dailyLife9 from '../assets/activities/daily-life-9.jpeg';
+import dailyLife10 from '../assets/activities/daily-life-10.jpeg';
 const Activities = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -20,7 +24,12 @@ const Activities = () => {
     dailyLife2,
     dailyLife3,
     dailyLife4,
-    dailyLife5
+    dailyLife5,
+    dailyLife6,
+    dailyLife7,
+    dailyLife8,
+    dailyLife9,
+    dailyLife10
   ];
 
   return (
