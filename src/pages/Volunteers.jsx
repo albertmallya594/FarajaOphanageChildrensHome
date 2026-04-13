@@ -22,7 +22,7 @@ const Volunteers = () => {
         minHeight: '50vh',
         display: 'flex',
         alignItems: 'center',
-        background: `linear-gradient(rgba(49, 34, 34, 0.22), rgba(12, 74, 110, 0.85)), url(${getInvolvedImg})`,
+        background: `linear-gradient(rgba(255, 255, 255, 0.75), rgba(12, 74, 110, 0.85)), url(${getInvolvedImg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         color: 'white',
@@ -79,7 +79,7 @@ const Volunteers = () => {
             <h3 style={{ fontSize: '1.75rem', marginBottom: '2rem' }}>Application Form</h3>
             
             {submitted ? (
-              <div style={{ padding: '2rem', backgroundColor: '#f0fdf4', color: '#166534', borderRadius: 'var(--radius-md)', textAlign: 'center' }}>
+              <div style={{ padding: '2rem', backgroundColor: '#f3f3f3ff', color: '#166534', borderRadius: 'var(--radius-md)', textAlign: 'center' }}>
                 <h4 style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>Application Received!</h4>
                 <p>Thank you for your interest in volunteering. We will be in touch shortly.</p>
                 <button onClick={() => setSubmitted(false)} className="btn btn-outline" style={{ marginTop: '1.5rem', borderColor: '#166534', color: '#166534' }}>Submit Another</button>
