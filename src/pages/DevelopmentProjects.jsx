@@ -31,6 +31,31 @@ import projectAction4 from '../assets/projects-action/project-action-4.jpg';
 import projectAction5 from '../assets/projects-action/project-action-5.jpg';
 import projectAction6 from '../assets/projects-action/project-action-6.jpg';
 
+// New cow project images
+import cowProject1 from '../assets/projects-action/WhatsApp Image 2026-04-11 at 22.12.11.jpeg';
+import cowProject2 from '../assets/projects-action/WhatsApp Image 2026-04-11 at 22.12.13.jpeg';
+import cowProject3 from '../assets/projects-action/WhatsApp Image 2026-04-11 at 22.12.15.jpeg';
+import cowProject4 from '../assets/projects-action/WhatsApp Image 2026-04-11 at 22.12.16.jpeg';
+
+// New agriculture project images
+import agricultureProject1 from '../assets/projects-action/WhatsApp Image 2026-04-11 at 22.12.17.jpeg';
+import agricultureProject2 from '../assets/projects-action/WhatsApp Image 2026-04-11 at 22.12.19.jpeg';
+import agricultureProject3 from '../assets/projects-action/WhatsApp Image 2026-04-11 at 22.12.20.jpeg';
+import agricultureProject4 from '../assets/projects-action/WhatsApp Image 2026-04-11 at 22.12.21.jpeg';
+import agricultureProject5 from '../assets/projects-action/WhatsApp Image 2026-04-11 at 22.12.22.jpeg';
+import agricultureProject6 from '../assets/projects-action/WhatsApp Image 2026-04-11 at 22.12.24.jpeg';
+import agricultureProject7 from '../assets/projects-action/WhatsApp Image 2026-04-11 at 22.12.26.jpeg';
+import agricultureProject8 from '../assets/projects-action/WhatsApp Image 2026-04-11 at 22.12.27.jpeg';
+import agricultureProject9 from '../assets/projects-action/WhatsApp Image 2026-04-11 at 22.12.29.jpeg';
+import agricultureProject10 from '../assets/projects-action/WhatsApp Image 2026-04-11 at 22.12.31.jpeg';
+
+// New poultry project images
+import poultryProject1 from '../assets/projects-action/WhatsApp Image 2026-04-11 at 22.12.00.jpeg';
+import poultryProject2 from '../assets/projects-action/WhatsApp Image 2026-04-11 at 22.12.02.jpeg';
+import poultryProject3 from '../assets/projects-action/WhatsApp Image 2026-04-11 at 22.12.03.jpeg';
+import poultryProject4 from '../assets/projects-action/WhatsApp Image 2026-04-11 at 22.12.04.jpeg';
+import poultryProject5 from '../assets/projects-action/WhatsApp Image 2026-04-11 at 22.12.07.jpeg';
+
 // Legacy image variables for existing projects
 const cowShelter = projectAction1;
 const cowGrazing = projectAction2;
@@ -114,12 +139,12 @@ const DevelopmentProjects = () => {
       tag: "Flagship",
       icon: <Milk size={32} />,
       color: "var(--primary)",
-      image: cowShelter,
+      image: cowProject1,
       shortDesc: "Our core sustainability initiative providing daily nutrition and financial stability since 2022.",
       fullDesc: "The Faraja Cow Project is the backbone of our self-reliance strategy. Started with a single donated cow, we have expanded to a healthy herd that serves both nutritional and economic purposes. This project teaches our children the value of agriculture and provides a consistent source of revenue and fresh dairy products.",
       objectives: ["Provide 100% of the orphanage's milk needs", "Generate surplus income for education fees", "Create organic fertilizer for our crops", "Teach animal husbandry skills"],
       benefits: ["Fresh Milk & Meat daily", "Income from surplus sales", "Improved soil health", "Sustainability training"],
-      gallery: [cowGrazing, cowShelter, cowSingle, cowHerd],
+      gallery: [cowProject1, cowProject2, cowProject3, cowProject4, cowGrazing, cowShelter, cowSingle, cowHerd],
       details: {
         structured: true,
         sections: [
@@ -196,12 +221,12 @@ const DevelopmentProjects = () => {
       tag: "Nutrition",
       icon: <Utensils size={32} />,
       color: "var(--sun)",
-      image: "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=800&q=80",
+      image: poultryProject1,
       shortDesc: "Ensuring a steady supply of protein through eggs and meat for over 200 children in our programs.",
       fullDesc: "Launched to address immediate protein deficiencies, the poultry project is a fast-growing initiative that provides daily fresh eggs. It is a low-maintenance, high-yield project that significantly reduces our food procurement costs while ensuring our children have a balanced diet rich in essential proteins.",
       objectives: ["Harvest 150+ eggs daily", "Maintain a healthy flock of 500+ chickens", "Provide organic poultry meat weekly", "Reduce food costs by 15%"],
       benefits: ["Daily Fresh Eggs", "Balanced protein intake", "Fast growth & high yield", "Community sales potential"],
-      gallery: ["https://images.unsplash.com/photo-1582559930438-e6fd428cd82d?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=800&q=80"],
+      gallery: [poultryProject1, poultryProject2, poultryProject3, poultryProject4, poultryProject5],
       details: {
         structured: true,
         sections: [
@@ -304,12 +329,12 @@ const DevelopmentProjects = () => {
       tag: "New Project",
       icon: <Sprout size={32} />,
       color: "var(--accent)",
-      image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=800&q=80",
+      image: agricultureProject1,
       shortDesc: "Growing seasonal crops to support daily meals and promote long-term food security at Faraja.",
       fullDesc: "The Agriculture Project focuses on utilizing our fertile land to grow essential crops like maize, beans, and vegetables. This initiative not only provides fresh, organic food for our daily meals but also serves as an outdoor classroom where children learn sustainable farming techniques that they can carry into adulthood.",
       objectives: ["Achieve 40% food self-sufficiency", "Implement organic irrigation systems", "Grow a diverse range of seasonal vegetables", "Foster agricultural entrepreneurship"],
       benefits: ["Fresh Organic Produce", "Reduced market dependency", "Practical farming education", "Climate-resilient crops"],
-      gallery: ["https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=800&q=80"],
+      gallery: [agricultureProject1, agricultureProject2, agricultureProject3, agricultureProject4, agricultureProject5, agricultureProject6, agricultureProject7, agricultureProject8, agricultureProject9, agricultureProject10],
       details: {
         structured: true,
         sections: [
