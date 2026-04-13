@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MessageCircle, Wrench, GraduationCap, Stethoscope } from 'lucide-react';
-import getInvolvedImg from '../assets/getinvolved/WhatsApp Image 2026-04-11 at 18.08.56 (3).jpeg';
+import getInvolvedImg from '../assets/getinvolved/volunters.jpeg';
 
 const Volunteers = () => {
   const [formData, setFormData] = useState({ name: '', email: '', skills: '', duration: '', message: '' });
@@ -22,7 +22,7 @@ const Volunteers = () => {
         minHeight: '50vh',
         display: 'flex',
         alignItems: 'center',
-        background: `linear-gradient(rgba(12, 74, 110, 0.75), rgba(12, 74, 110, 0.85)), url(${getInvolvedImg})`,
+        background: `linear-gradient(rgba(49, 34, 34, 0.22), rgba(12, 74, 110, 0.85)), url(${getInvolvedImg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         color: 'white',
